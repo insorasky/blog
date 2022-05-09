@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Molmoe Network 组网记录</title>
+      <link href="/molmoe-build.html"/>
+      <url>/molmoe-build.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p>听说 DN42 之后感觉还挺有意思的，就趁着寒假捣鼓了一把，顺便修改了网络结构，通过 ZeroTier 把家里、宿舍、实验室等的网络组合在一起了。<del>感谢 JerryXiao 同志的 DN42 MTProto 让我手机接入 Molmoe-DN42/Molmoe-Backbone 之后还能使用 Telegram</del></p><p><a href="https://dn42.mol.moe/">点此和 Molmoe Network 一起贴贴</a></p><h2 id="打理内网"><a href="#打理内网" class="headerlink" title="打理内网"></a>打理内网</h2><p>MolMoe Network 使用的 IPv4 段为 <code>10.100.0.0/16</code>，主干网为<code>10.100.0.0/24</code>，为每个地点的网关分配一个<code>/24</code>前缀。IPv6 段则直接接入 DN42 网络。</p><p>新建一个 ZeroTier 网络作为主干网，首先将<code>10.100.0.0/24</code>设为主干网的 LAN 地址块，方法是新增一条路由，Destination 设为<code>10.100.0.0/24</code>，via 放空。</p><p>之后根据情况设置 IPv4 自动下发段。此时尚未注册 DN42 网络，IPv6暂时不设置。</p><p>在各个地点的路由器上加入主干网，设置主干段<code>10.100.0.0/24</code>的固定IP。之后为各个地点定义子网，为各个子网设置路由，将子网路由向指定的路由器主干IP。并将预备的 DN42 节点加入主干网，将 DN42 网段<code>172.20.0.0/14</code>路由向这个节点。</p><p>我在 OpenWRT 路由器上使用了<code>luci-app-zerotier</code>插件，防火墙默认允许转发。为了安全，应该禁止 WAN 的转发。</p><p>测试能否互访，能互访则设置成功。</p><h2 id="申请-DN42-ASN-和-IP"><a href="#申请-DN42-ASN-和-IP" class="headerlink" title="申请 DN42 ASN 和 IP"></a>申请 DN42 ASN 和 IP</h2><p>访问<a href="https://git.dn42.dev/">DN42 Git</a>，注册一个帐号。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 纯属折腾 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DN42 </tag>
+            
+            <tag> Molmoe </tag>
+            
+            <tag> 网络技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于迁移到Hexo</title>
       <link href="/hello-hexo.html"/>
       <url>/hello-hexo.html</url>
@@ -145,7 +174,7 @@
       <link href="/hx-uniapp-cli.html"/>
       <url>/hx-uniapp-cli.html</url>
       
-        <content type="html"><![CDATA[<p>最近写了一个一键发布微信小程序的HBuilderX插件，需要手动执行Uni-App的编译命令。官方文档中只有通过cli创建的项目才能通过cli编译项目，经过翻找HBuilderX的日志以及阅读编译器的代码，将uniapp-cli编译方法整理如下（此处以macOS版为例，其他操作系统同理）：</p><ul><li><p>1.<code>cd</code>至<code>/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli</code>；</p></li><li><p>2.设置环境变量<code>NODE_ENV</code>为<code>development</code>或<code>production</code>；</p></li><li><p>3.设置环境变量<code>UNI_INPUT_DIR</code>为Uni-App项目目录；</p></li><li><p>4.设置环境变量<code>UNI_OUTPUT_DIR</code>为输出目录；</p></li><li><p>5.设置环境变量<code>UNI_PLATFORM</code>为目标平台，参见<a href="https://uniapp.dcloud.io/quickstart-cli">官方文档</a>；</p></li><li><p>6.运行命令<code>"/Applications/HBuilderX.app/Contents/HBuilderX/plugins/node/node" --max-old-space-size=2048 /Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/bin/uniapp-cli.js</code>。<br>运行结果：<br><img src="https://www.sorasky.in/usr/uploads/2021/08/3043982037.png" alt="iShot2021-08-12 22.26.24.png"></p></li></ul>]]></content>
+        <content type="html"><![CDATA[<p>最近写了一个一键发布微信小程序的HBuilderX插件，需要手动执行Uni-App的编译命令。官方文档中只有通过cli创建的项目才能通过cli编译项目，经过翻找HBuilderX的日志以及阅读编译器的代码，将uniapp-cli编译方法整理如下（此处以macOS版为例，其他操作系统同理）：</p><ul><li><p>1.<code>cd</code>至<code>/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli</code>；</p></li><li><p>2.设置环境变量<code>NODE_ENV</code>为<code>development</code>或<code>production</code>；</p></li><li><p>3.设置环境变量<code>UNI_INPUT_DIR</code>为Uni-App项目目录；</p></li><li><p>4.设置环境变量<code>UNI_OUTPUT_DIR</code>为输出目录；</p></li><li><p>5.设置环境变量<code>UNI_PLATFORM</code>为目标平台，参见<a href="https://uniapp.dcloud.io/quickstart-cli">官方文档</a>；</p></li><li><p>6.运行命令<code>"/Applications/HBuilderX.app/Contents/HBuilderX/plugins/node/node" --max-old-space-size=2048 /Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/bin/uniapp-cli.js</code>。<br>运行结果：<br><img src="/images/3043982037.png" alt="iShot2021-08-12 22.26.24.png"></p></li></ul>]]></content>
       
       
       <categories>
