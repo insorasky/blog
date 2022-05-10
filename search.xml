@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>在 Visual Studio Code 的 Remote SSH 应用 GPG Agent</title>
+      <link href="/vscode-ssh-gpg-agent.html"/>
+      <url>/vscode-ssh-gpg-agent.html</url>
+      
+        <content type="html"><![CDATA[<p>此内容理论上同时支持Linux/Mac。</p><ul><li>把 GPG 相关的内容安装清楚</li><li>将 <code>enable-ssh-support</code> 加入 <code>~/.ssh/gpg-agent.conf</code> 中</li><li>创建 <code>ssh-gpg</code> 文件，赋予可执行权限，内容如下：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/shexport GPG_TTY=$TTYunset SSH_AGENT_PIDif [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"figpgconf --launch gpg-agentssh $*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>修改 VSCode 设置，将<code>remote.SSH.path</code>设置为<code>ssh-gpg</code>所在的路径。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 纯属折腾 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Visual Studio Code </tag>
+            
+            <tag> GPG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MolMoe Network 组网记录</title>
       <link href="/molmoe-build.html"/>
       <url>/molmoe-build.html</url>
