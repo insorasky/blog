@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Tue Feb 23 2021 22:41:22 GMT+0800">
-        <meta property="article:modified_time" content="Fri Mar 11 2022 17:50:23 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 11 2022 17:50:22 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.sorasky.in/kt-str-bytearray.html",
     "headline": "kotlin 十六进制文本(String)和字节集(ByteArray)互转",
     "datePublished": "Tue Feb 23 2021 22:41:22 GMT+0800",
-    "dateModified": "Fri Mar 11 2022 17:50:23 GMT+0800",
+    "dateModified": "Fri Mar 11 2022 17:50:22 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Sora",
@@ -456,44 +456,46 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">object</span> HexUtils <span class="token punctuation">{</span>
-    <span class="token keyword">fun</span> <span class="token function">hexStringToBytes</span><span class="token punctuation">(</span>hexString<span class="token operator">:</span> String<span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">:</span> ByteArray<span class="token operator">?</span> <span class="token punctuation">{</span>
-        <span class="token annotation builtin">@Suppress</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"NAME_SHADOWING"</span></span><span class="token punctuation">)</span>
-        <span class="token keyword">var</span> hexString <span class="token operator">=</span> hexString
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>hexString <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> hexString <span class="token operator">==</span> <span class="token string-literal singleline"><span class="token string">""</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">null</span>
-        <span class="token punctuation">}</span>
-        hexString <span class="token operator">=</span> hexString<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">val</span> length <span class="token operator">=</span> hexString<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span>
-        <span class="token keyword">val</span> hexChars <span class="token operator">=</span> hexString<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">val</span> <span class="token keyword">data</span> <span class="token operator">=</span> <span class="token function">ByteArray</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">0</span> until length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">val</span> pos <span class="token operator">=</span> i <span class="token operator">*</span> <span class="token number">2</span>
-            <span class="token keyword">data</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">charToByte</span><span class="token punctuation">(</span>hexChars<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">shl</span> <span class="token number">4</span> <span class="token operator">or</span> <span class="token function">charToByte</span><span class="token punctuation">(</span>hexChars<span class="token punctuation">[</span>pos <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token keyword">data</span>
-    <span class="token punctuation">}</span>
+        <pre><code class="kotlin">object HexUtils {
+    fun hexStringToBytes(hexString: String?): ByteArray? {
+        @Suppress("NAME_SHADOWING")
+        var hexString = hexString
+        if (hexString == null || hexString == "") {
+            return null
+        }
+        hexString = hexString.toUpperCase()
+        val length = hexString.length / 2
+        val hexChars = hexString.toCharArray()
+        val data = ByteArray(length)
+        for (i in 0 until length) {
+            val pos = i * 2
+            data[i] = (charToByte(hexChars[pos]).toInt() shl 4 or charToByte(hexChars[pos + 1]).toInt()).toByte()
+        }
+        return data
+    }
 
-    <span class="token keyword">fun</span> <span class="token function">bytesToHexString</span><span class="token punctuation">(</span>src<span class="token operator">:</span> ByteArray<span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">:</span> String<span class="token operator">?</span> <span class="token punctuation">{</span>
-        <span class="token keyword">val</span> stringBuilder <span class="token operator">=</span> <span class="token function">StringBuilder</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">""</span></span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>src <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> src<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">null</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span>element <span class="token keyword">in</span> src<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">val</span> v <span class="token operator">=</span> element<span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token number">0xFF</span>
-            <span class="token keyword">val</span> hv <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">toHexString</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>hv<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                stringBuilder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-            stringBuilder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>hv<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> stringBuilder<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    fun bytesToHexString(src: ByteArray?): String? {
+        val stringBuilder = StringBuilder("")
+        if (src == null || src.isEmpty()) {
+            return null
+        }
+        for (element in src) {
+            val v = element.toInt() and 0xFF
+            val hv = Integer.toHexString(v)
+            if (hv.length &lt; 2) {
+                stringBuilder.append(0)
+            }
+            stringBuilder.append(hv)
+        }
+        return stringBuilder.toString()
+    }
 
-    <span class="token keyword">private</span> <span class="token keyword">fun</span> <span class="token function">charToByte</span><span class="token punctuation">(</span>c<span class="token operator">:</span> Char<span class="token punctuation">)</span><span class="token operator">:</span> Byte <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token string-literal singleline"><span class="token string">"0123456789ABCDEF"</span></span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    private fun charToByte(c: Char): Byte {
+        return "0123456789ABCDEF".indexOf(c).toByte()
+    }
+}
+</code></pre>
+
         
     
 
@@ -986,6 +988,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -996,6 +1004,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1030,7 +1045,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

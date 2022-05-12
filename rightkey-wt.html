@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 19 2020 23:27:22 GMT+0800">
-        <meta property="article:modified_time" content="Fri Mar 11 2022 17:36:51 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 11 2022 17:36:50 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.sorasky.in/rightkey-wt.html",
     "headline": "在资源管理器右键菜单中添加“使用 Windows Terminal 打开”",
     "datePublished": "Wed Aug 19 2020 23:27:22 GMT+0800",
-    "dateModified": "Fri Mar 11 2022 17:36:51 GMT+0800",
+    "dateModified": "Fri Mar 11 2022 17:36:50 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Sora",
@@ -457,13 +457,14 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>将以下注册表文件导入注册表：</p>
-<pre class="line-numbers language-none"><code class="language-none">Windows Registry Editor Version 5.00
+<pre><code>Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\WindowsTerminal]
 @="使用 Windows &amp;Terminal 打开"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\WindowsTerminal\command]
-@="C:\\Users\\***（你的用户名称）***\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe -d \"%V\""<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+@="C:\\Users\\***（你的用户名称）***\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe -d \"%V\""
+</code></pre>
 <p>应用后即可见到效果。</p>
 
         
@@ -958,6 +959,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -968,6 +975,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1002,7 +1016,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

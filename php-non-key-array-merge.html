@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Mon Aug 10 2020 19:15:22 GMT+0800">
-        <meta property="article:modified_time" content="Fri Mar 11 2022 17:28:51 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 11 2022 17:28:50 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.sorasky.in/php-non-key-array-merge.html",
     "headline": "PHP取无键名一维数组并集",
     "datePublished": "Mon Aug 10 2020 19:15:22 GMT+0800",
-    "dateModified": "Fri Mar 11 2022 17:28:51 GMT+0800",
+    "dateModified": "Fri Mar 11 2022 17:28:50 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Sora",
@@ -459,24 +459,26 @@
         <blockquote>
 <p>array_merge只能生成有键名的数组的并集，因此自己写了一个用于生成无键名数组并集的函数。</p>
 </blockquote>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-    <span class="token comment">/*
+<pre><code class="php">&lt;?php
+    /*
      * 函数：array_union($arg1,$arg2,...)
      * 描述：取无键名一维数组并集
      * 作者：Sora
      * 博客：https://www.sorasky.in/
-    */</span>
-    <span class="token keyword">function</span> <span class="token function-definition function">array_union</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token variable">$args</span> <span class="token operator">=</span> <span class="token function">func_get_args</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$args</span> <span class="token keyword">as</span> <span class="token variable">$arg</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token function">array_flip</span><span class="token punctuation">(</span><span class="token variable">$response</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token variable">$arg</span> <span class="token operator">=</span> <span class="token function">array_flip</span><span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token function">array_merge</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">,</span><span class="token variable">$arg</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token function">array_keys</span><span class="token punctuation">(</span><span class="token variable">$response</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token variable">$response</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    */
+    function array_union(){
+        $args = func_get_args();
+        $response = [];
+        foreach($args as $arg){
+            $res = array_flip($response);
+            $arg = array_flip($arg);
+            $response = array_merge($res,$arg);
+            $response = array_keys($response);
+        }
+        return $response;
+    }
+</code></pre>
+
         
     
 
@@ -969,6 +971,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -979,6 +987,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1013,7 +1028,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

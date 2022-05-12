@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -457,83 +457,85 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>数据结构作业</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">enum</span> <span class="token class-name">status_code</span> <span class="token punctuation">{</span>success<span class="token punctuation">,</span> overflow<span class="token punctuation">,</span> underflow<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Type</span><span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token operator">&gt;</span>
-<span class="token keyword">class</span> <span class="token class-name">Stack</span><span class="token punctuation">{</span>
-    <span class="token keyword">public</span><span class="token operator">:</span>
-        <span class="token function">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">bool</span> <span class="token function">is_full</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">bool</span> <span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        status_code <span class="token function">push</span><span class="token punctuation">(</span>Type num<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        status_code <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        status_code <span class="token function">get_top</span><span class="token punctuation">(</span>Type <span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">void</span> <span class="token function">show_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span><span class="token operator">:</span>
-        <span class="token keyword">int</span> count<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> data<span class="token punctuation">[</span>max<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Type</span><span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token operator">&gt;</span>
-<span class="token class-name">Stack</span><span class="token operator">&lt;</span>Type<span class="token punctuation">,</span> max<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    count <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Type</span><span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token operator">&gt;</span>
-<span class="token keyword">bool</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>Type<span class="token punctuation">,</span> max<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">is_full</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> max <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Type</span><span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token operator">&gt;</span>
-<span class="token keyword">bool</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>Type<span class="token punctuation">,</span> max<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Type</span><span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token operator">&gt;</span>
-status_code <span class="token class-name">Stack</span><span class="token operator">&lt;</span>Type<span class="token punctuation">,</span> max<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">push</span><span class="token punctuation">(</span>Type num<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_full</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> overflow<span class="token punctuation">;</span>
-    data<span class="token punctuation">[</span><span class="token operator">++</span>count<span class="token punctuation">]</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> success<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Type</span><span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token operator">&gt;</span>
-status_code <span class="token class-name">Stack</span><span class="token operator">&lt;</span>Type<span class="token punctuation">,</span> max<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> underflow<span class="token punctuation">;</span>
-    <span class="token operator">--</span>count<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> success<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Type</span><span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token operator">&gt;</span>
-status_code <span class="token class-name">Stack</span><span class="token operator">&lt;</span>Type<span class="token punctuation">,</span> max<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">get_top</span><span class="token punctuation">(</span>Type <span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> underflow<span class="token punctuation">;</span>
-    num <span class="token operator">=</span> data<span class="token punctuation">[</span>count<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> success<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Type</span><span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token operator">&gt;</span>
-<span class="token keyword">void</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>Type<span class="token punctuation">,</span> max<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">show_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> count<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        cout <span class="token operator">&lt;&lt;</span> data<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<pre><code class="cpp">#include &lt;iostream&gt;
+using namespace std;
+enum status_code {success, overflow, underflow};
+template &lt;class Type, int max&gt;
+class Stack{
+    public:
+        Stack();
+        bool is_full();
+        bool is_empty();
+        status_code push(Type num);
+        status_code pop();
+        status_code get_top(Type &amp;num);
+        void show_all();
+    private:
+        int count;
+        int data[max];
+};
+template &lt;class Type, int max&gt;
+Stack&lt;Type, max&gt;::Stack(){
+    count = -1;
+}
+template &lt;class Type, int max&gt;
+bool Stack&lt;Type, max&gt;::is_full(){
+    return (count == max - 1);
+}
+template &lt;class Type, int max&gt;
+bool Stack&lt;Type, max&gt;::is_empty(){
+    return (count == -1);
+}
+template &lt;class Type, int max&gt;
+status_code Stack&lt;Type, max&gt;::push(Type num){
+    if(is_full()) return overflow;
+    data[++count] = num;
+    return success;
+}
+template &lt;class Type, int max&gt;
+status_code Stack&lt;Type, max&gt;::pop(){
+    if(is_empty()) return underflow;
+    --count;
+    return success;
+}
+template &lt;class Type, int max&gt;
+status_code Stack&lt;Type, max&gt;::get_top(Type &amp;num){
+    if(is_empty()) return underflow;
+    num = data[count];
+    return success;
+}
+template &lt;class Type, int max&gt;
+void Stack&lt;Type, max&gt;::show_all(){
+    for(int i = 0; i &lt;= count; ++i){
+        cout &lt;&lt; data[i] &lt;&lt; " ";
+    }
+    cout &lt;&lt; "\n";
+}
 
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    Stack<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token operator">&gt;</span> stack<span class="token punctuation">;</span>
-    string data<span class="token punctuation">;</span>
-    <span class="token keyword">char</span> current<span class="token punctuation">;</span>
-    cin <span class="token operator">&gt;&gt;</span> data<span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> data<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">get_top</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span> <span class="token operator">==</span> underflow <span class="token operator">&amp;&amp;</span> i<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token keyword">switch</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">case</span> <span class="token char">')'</span><span class="token operator">:</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>current <span class="token operator">==</span> <span class="token char">'('</span><span class="token punctuation">)</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token char">']'</span><span class="token operator">:</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>current <span class="token operator">==</span> <span class="token char">'['</span><span class="token punctuation">)</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token char">'}'</span><span class="token operator">:</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>current <span class="token operator">==</span> <span class="token char">'{'</span><span class="token punctuation">)</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token keyword">default</span><span class="token operator">:</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">"括号配对"</span> <span class="token operator">:</span> <span class="token string">"括号不配对"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+int main(){
+    Stack&lt;char, 100&gt; stack;
+    string data;
+    char current;
+    cin &gt;&gt; data;
+    for(int i = 0; i &lt; data.length(); ++i){
+        if(stack.get_top(current) == underflow &amp;&amp; i) break;
+        switch(data[i]){
+            case ')':
+                if(current == '(') stack.pop(); break;
+            case ']':
+                if(current == '[') stack.pop(); break;
+            case '}':
+                if(current == '{') stack.pop(); break;
+            default:
+                stack.push(data[i]);
+        }
+    }
+    cout &lt;&lt; (stack.is_empty() ? "括号配对" : "括号不配对");
+    return 0;
+}
+</code></pre>
+
         
     
 
@@ -1026,6 +1028,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -1036,6 +1044,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1070,7 +1085,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

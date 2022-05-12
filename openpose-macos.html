@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -448,25 +448,30 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>做项目要用，装一个咯。<br>这里的配置是安装Python库并使用CPU_ONLY模式。<br>改天看看怎么启用OpenCL吧。虽然估计这破核显快不到哪去。<br>1.克隆openpose仓库及caffe、pybind11、模型</p>
-<pre class="line-numbers language-none"><code class="language-none">git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git
+<pre><code>git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git
 cd openpose/3rdparty
 git clone https://github.com/CMU-Perceptual-Computing-Lab/caffe.git
 git clone https://github.com/pybind/pybind11.git
 cd ../models
-./getModels.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+./getModels.sh
+</code></pre>
 <p>2.安装依赖（先安装brew，不知道怎么安装的请自行搜索）</p>
-<pre class="line-numbers language-none"><code class="language-none">cd ..
-./scripts/osx/install_deps.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>cd ..
+./scripts/osx/install_deps.sh
+</code></pre>
 <p>3.安装cmake_gui</p>
-<pre class="line-numbers language-none"><code class="language-none">brew install brew-cask-completion # 如果已安装brew cask则跳过此步骤
-brew install --cask cmake<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>brew install brew-cask-completion # 如果已安装brew cask则跳过此步骤
+brew install --cask cmake
+</code></pre>
 <p>4.启动台中找到CMake，source code选openpose根目录，build binaries则选openpose下的build目录。若build目录不存在则自己建一个。<br>5.点击Configure，如果有红色高亮项目出现就多点几次，直到不出现为止。<br>6.勾选BUILD_PYTHON，重复4。<br>7.点击Generate，多点几次。<br>8.在build目录下，执行以下命令开始编译：</p>
-<pre class="line-numbers language-none"><code class="language-none">make -j`sysctl -n hw.logicalcpu`<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>make -j`sysctl -n hw.logicalcpu`
+</code></pre>
 <p><img src="/images/2100364622.png"><br>9.返回根目录，在根目录运行示例。<br>cpp示例位于<code>openpose/build/examples/tutorial_api_cpp</code>；<br>python示例<code>openpose/build/examples/tutorial_api_python</code>。<br>例如：</p>
-<pre class="line-numbers language-none"><code class="language-none"># 该命令需在openpose根目录运行
+<pre><code># 该命令需在openpose根目录运行
 ./build/examples/openpose/openpose.bin --video examples/media/video.avi
 # 该命令依赖opencv-python(cv2)，请先安装
-python ./build/examples/tutorial_api_python/01_body_from_image.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+python ./build/examples/tutorial_api_python/01_body_from_image.py
+</code></pre>
 <p><img src="/images/577232703.png"><br><img src="/images/2798152345.png"></p>
 
         
@@ -961,6 +966,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -971,6 +982,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1005,7 +1023,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

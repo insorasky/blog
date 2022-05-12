@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -454,101 +454,102 @@
 <li><p>实现各遍历算法；例如：如图2所示的森林，后序遍历森林的序列输出：KEFBGCHIJDALNM</p>
 </li>
 <li><p>与二叉树的相互转换（如图2-图3所示）；<br><img src="/images/684325027.png"></p>
-<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+<pre><code>#include &lt;iostream&gt;
 #include &lt;fstream&gt;
 using namespace std;
 struct Node{
-    char data;
-    Node *child, *brother;
-    Node(): data('\0'), child(NULL), brother(NULL){};
-    Node(char data_): data(data_), child(NULL), brother(NULL){};
+  char data;
+  Node *child, *brother;
+  Node(): data('\0'), child(NULL), brother(NULL){};
+  Node(char data_): data(data_), child(NULL), brother(NULL){};
 };
 Node *root = new Node(' ');
 void initialize(Node *father, fstream *file){
-    int child_count;
-    if(file) *file &gt;&gt; child_count;
-    else cin &gt;&gt; child_count;
-    if(child_count == 0) return;
-    char data;
-    if(file) *file &gt;&gt; data;
-    else cin &gt;&gt; data;
-    father-&gt;child = new Node(data);
-    initialize(father-&gt;child, file);
-    Node *p = father-&gt;child;
-    for(int i = 1; i &lt; child_count; i++){
-        if(file) *file &gt;&gt; data;
-        else cin &gt;&gt; data;
-        p-&gt;brother = new Node(data);
-        initialize(p-&gt;brother, file);
-        p = p-&gt;brother;
-    }
+  int child_count;
+  if(file) *file &gt;&gt; child_count;
+  else cin &gt;&gt; child_count;
+  if(child_count == 0) return;
+  char data;
+  if(file) *file &gt;&gt; data;
+  else cin &gt;&gt; data;
+  father-&gt;child = new Node(data);
+  initialize(father-&gt;child, file);
+  Node *p = father-&gt;child;
+  for(int i = 1; i &lt; child_count; i++){
+      if(file) *file &gt;&gt; data;
+      else cin &gt;&gt; data;
+      p-&gt;brother = new Node(data);
+      initialize(p-&gt;brother, file);
+      p = p-&gt;brother;
+  }
 }
 void goThrough(Node *head){
-    if(head &amp;&amp; head-&gt;child){
-        Node *p = head-&gt;child;
-        while(p){
-            goThrough(p);
-            cout &lt;&lt; p-&gt;data;
-            p = p-&gt;brother;
-        }
-    }
+  if(head &amp;&amp; head-&gt;child){
+      Node *p = head-&gt;child;
+      while(p){
+          goThrough(p);
+          cout &lt;&lt; p-&gt;data;
+          p = p-&gt;brother;
+      }
+  }
 }
 struct BNode{
-    char data;
-    BNode *lchild, *rchild;
-    BNode(): data('\0'), lchild(NULL), rchild(NULL){};
-    BNode(char data_): data(data_), lchild(NULL), rchild(NULL){};
+  char data;
+  BNode *lchild, *rchild;
+  BNode(): data('\0'), lchild(NULL), rchild(NULL){};
+  BNode(char data_): data(data_), lchild(NULL), rchild(NULL){};
 };
 BNode *broot;
 void convert(Node *thead, BNode *bhead){
-    if(thead){
-        if(thead-&gt;child) bhead-&gt;lchild = new BNode(thead-&gt;child-&gt;data);
-        if(thead-&gt;brother) bhead-&gt;rchild = new BNode(thead-&gt;brother-&gt;data);
-        convert(thead-&gt;child, bhead-&gt;lchild);
-        convert(thead-&gt;brother, bhead-&gt;rchild);
-    }
+  if(thead){
+      if(thead-&gt;child) bhead-&gt;lchild = new BNode(thead-&gt;child-&gt;data);
+      if(thead-&gt;brother) bhead-&gt;rchild = new BNode(thead-&gt;brother-&gt;data);
+      convert(thead-&gt;child, bhead-&gt;lchild);
+      convert(thead-&gt;brother, bhead-&gt;rchild);
+  }
 }
 void frontGoThrough(BNode *head){
-    if(head){
-        cout &lt;&lt; head-&gt;data;
-        if(head-&gt;lchild) frontGoThrough(head-&gt;lchild);
-        if(head-&gt;rchild) frontGoThrough(head-&gt;rchild);
-    }
+  if(head){
+      cout &lt;&lt; head-&gt;data;
+      if(head-&gt;lchild) frontGoThrough(head-&gt;lchild);
+      if(head-&gt;rchild) frontGoThrough(head-&gt;rchild);
+  }
 }
 int main(){
-    int method;
-    cout &lt;&lt; "请选择建立方法：1.输入；2.文件：";
-    cin &gt;&gt; method;
-    // method = 2;
-    switch (method){
-        case 1:
-            cout &lt;&lt; "请输入要建立的树：" &lt;&lt; endl;
-            initialize(root, NULL);
-            break;
-        case 2:{
-            fstream f;
-            f.open("./tree.txt", ios::in);
-            if(!f.is_open()){
-                cout &lt;&lt; "文件打开失败！" &lt;&lt; endl;
-                exit(0);
-            }
-            initialize(root, &amp;f);
-            break;
-        }
-        default:
-            cout &lt;&lt; "输入错误，即将退出！" &lt;&lt; endl;
-            exit(0);
-    }
-    root = root-&gt;child;
-    cout &lt;&lt; "建立成功！" &lt;&lt; endl;
-    cout &lt;&lt; "森林后序遍历：";
-    goThrough(root);
-    broot = new BNode(root-&gt;data);
-    convert(root, broot);
-    cout &lt;&lt; endl &lt;&lt; "转换为二叉树后的前序遍历：";
-    frontGoThrough(broot);
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  int method;
+  cout &lt;&lt; "请选择建立方法：1.输入；2.文件：";
+  cin &gt;&gt; method;
+  // method = 2;
+  switch (method){
+      case 1:
+          cout &lt;&lt; "请输入要建立的树：" &lt;&lt; endl;
+          initialize(root, NULL);
+          break;
+      case 2:{
+          fstream f;
+          f.open("./tree.txt", ios::in);
+          if(!f.is_open()){
+              cout &lt;&lt; "文件打开失败！" &lt;&lt; endl;
+              exit(0);
+          }
+          initialize(root, &amp;f);
+          break;
+      }
+      default:
+          cout &lt;&lt; "输入错误，即将退出！" &lt;&lt; endl;
+          exit(0);
+  }
+  root = root-&gt;child;
+  cout &lt;&lt; "建立成功！" &lt;&lt; endl;
+  cout &lt;&lt; "森林后序遍历：";
+  goThrough(root);
+  broot = new BNode(root-&gt;data);
+  convert(root, broot);
+  cout &lt;&lt; endl &lt;&lt; "转换为二叉树后的前序遍历：";
+  frontGoThrough(broot);
+  return 0;
+}
+</code></pre>
 <p>示例数据：<code>3 A 3 B 2 E 1 K 0 F 0 C 1 G 0 D 3 H 0 I 0 J 0 L 0 M 1 N 0</code></p>
 </li>
 </ul>
@@ -1045,6 +1046,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -1055,6 +1062,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1089,7 +1103,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

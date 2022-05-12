@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -456,74 +456,76 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">base32_encode</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token variable">$BASE32_ALPHABET</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'abcdefghijklmnopqrstuvwxyz234567'</span><span class="token punctuation">;</span>
-    <span class="token variable">$output</span> <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
-    <span class="token variable">$v</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token variable">$vbits</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <pre><code class="php">function base32_encode($input) {
+    $BASE32_ALPHABET = 'abcdefghijklmnopqrstuvwxyz234567';
+    $output = '';
+    $v = 0;
+    $vbits = 0;
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$j</span> <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token variable">$j</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token variable">$v</span> <span class="token operator">&lt;&lt;</span><span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
-        <span class="token variable">$v</span> <span class="token operator">+=</span> <span class="token function">ord</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$vbits</span> <span class="token operator">+=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+    for ($i = 0, $j = strlen($input); $i &lt; $j; $i++) {
+        $v &lt;&lt;= 8;
+        $v += ord($input[$i]);
+        $vbits += 8;
 
-        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$vbits</span> <span class="token operator">&gt;=</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$vbits</span> <span class="token operator">-=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-            <span class="token variable">$output</span> <span class="token operator">.=</span> <span class="token variable">$BASE32_ALPHABET</span><span class="token punctuation">[</span><span class="token variable">$v</span> <span class="token operator">&gt;&gt;</span> <span class="token variable">$vbits</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token variable">$v</span> <span class="token operator">&amp;=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token variable">$vbits</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        while ($vbits &gt;= 5) {
+            $vbits -= 5;
+            $output .= $BASE32_ALPHABET[$v &gt;&gt; $vbits];
+            $v &amp;= ((1 &lt;&lt; $vbits) - 1);
+        }
+    }
 
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$vbits</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token variable">$v</span> <span class="token operator">&lt;&lt;</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">-</span> <span class="token variable">$vbits</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$output</span> <span class="token operator">.=</span> <span class="token variable">$BASE32_ALPHABET</span><span class="token punctuation">[</span><span class="token variable">$v</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    if ($vbits &gt; 0) {
+        $v &lt;&lt;= (5 - $vbits);
+        $output .= $BASE32_ALPHABET[$v];
+    }
 
-    <span class="token keyword">return</span> <span class="token variable">$output</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function-definition function">base32_decode</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token variable">$output</span> <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
-    <span class="token variable">$v</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token variable">$vbits</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    return $output;
+}
+function base32_decode($input) {
+    $output = '';
+    $v = 0;
+    $vbits = 0;
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$j</span> <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token variable">$j</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token variable">$v</span> <span class="token operator">&lt;&lt;</span><span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token string single-quoted-string">'a'</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string single-quoted-string">'z'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$v</span> <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token function">ord</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">97</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token string single-quoted-string">'2'</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string single-quoted-string">'7'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$v</span> <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token number">24</span> <span class="token operator">+</span> <span class="token variable">$input</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+    for ($i = 0, $j = strlen($input); $i &lt; $j; $i++) {
+        $v &lt;&lt;= 5;
+        if ($input[$i] &gt;= 'a' &amp;&amp; $input[$i] &lt;= 'z') {
+            $v += (ord($input[$i]) - 97);
+        } elseif ($input[$i] &gt;= '2' &amp;&amp; $input[$i] &lt;= '7') {
+            $v += (24 + $input[$i]);
+        } else {
+            exit(1);
+        }
 
-        <span class="token variable">$vbits</span> <span class="token operator">+=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$vbits</span> <span class="token operator">&gt;=</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$vbits</span> <span class="token operator">-=</span> <span class="token number">8</span><span class="token punctuation">;</span>
-            <span class="token variable">$output</span> <span class="token operator">.=</span> <span class="token function">chr</span><span class="token punctuation">(</span><span class="token variable">$v</span> <span class="token operator">&gt;&gt;</span> <span class="token variable">$vbits</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token variable">$v</span> <span class="token operator">&amp;=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token variable">$vbits</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token variable">$output</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-    <span class="token keyword">function</span> <span class="token function-definition function">base16_encode</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
-    <span class="token variable">$BASE_16_CHARS</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"0"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"1"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"2"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"3"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"4"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"5"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"6"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"7"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"8"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"9"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"A"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"B"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"C"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"D"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"E"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token variable">$result</span> <span class="token operator">.=</span> <span class="token variable">$BASE_16_CHARS</span><span class="token punctuation">[</span><span class="token punctuation">(</span>@<span class="token function">ord</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xf0</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$result</span> <span class="token operator">.=</span> <span class="token variable">$BASE_16_CHARS</span><span class="token punctuation">[</span>@<span class="token function">ord</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x0f</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function-definition function">base16_decode</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
-    <span class="token variable">$len</span> <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token variable">$len</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token variable">$result</span> <span class="token operator">.=</span> <span class="token function">chr</span><span class="token punctuation">(</span><span class="token function">intval</span><span class="token punctuation">(</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">,</span> <span class="token variable">$i</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        $vbits += 5;
+        while ($vbits &gt;= 8) {
+            $vbits -= 8;
+            $output .= chr($v &gt;&gt; $vbits);
+            $v &amp;= ((1 &lt;&lt; $vbits) - 1);
+        }
+    }
+    return $output;
+}
+    function base16_encode($data)
+{
+    $result = "";
+    $BASE_16_CHARS = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F");
+    for ($i = 0; $i &lt; strlen($data); $i++) {
+        $result .= $BASE_16_CHARS[(@ord($data[$i]) &amp; 0xf0) &gt;&gt; 4];
+        $result .= $BASE_16_CHARS[@ord($data[$i]) &amp; 0x0f];
+    }
+    return $result;
+}
+function base16_decode($data)
+{
+    $result = "";
+    $len = strlen($data) / 2;
+    for ($i = 0; $i &lt; $len; $i++) {
+        $result .= chr(intval(substr($data, $i * 2, 2), 16));
+    }
+    return $result;
+}
+</code></pre>
+
         
     
 
@@ -1016,6 +1018,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -1026,6 +1034,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1060,7 +1075,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -465,8 +465,9 @@
 <p>调出F12开发者工具抓包，包长这样：<img src="/images/1994399784.png" alt="QQ截图20201004232507.png"><br>通过浏览器直接访问，输出的是XML……<img src="/images/1893207054.png" alt="QQ截图20201005001237.png"><br>XML？？？好好的JSON哪里去了？<br>再回来看包，发现HTTP请求头里有这么个玩意：<img src="/images/2628931910.png" alt="QQ截图20201004232827.png"><br>把cookie原样搬到Postman上，成功输出：<img src="/images/3908354450.png" alt="QQ截图20201004232943.png"><br>既然主要接口成功输出了，那么接下来就是用户登录的问题。<br>登录界面抓包如下：<img src="/images/2017177769.png" alt="QQ截图20201004233602.png"><img src="/images/3102144277.png" alt="QQ截图20201004233732.png"><br>登录过程中使用了令牌，且密码加密混淆过。<br>而且这个登录包比较奇葩，正常的POST包在F12开发者工具中格式为：<code>参数名称: 参数内容</code><br>而这玩意是一整串json数据。<br>这种包的内容需要在Postman的Body选项卡中填写，可能需要设置HTTP头<code>Content-Type</code>为<code>application/json</code>。<br>翻找登录按钮JavaScript代码，找到密码规则：<code>encryptPassword = new String(CryptoJS.SHA1(salt + '-' + $("#p").val())) + "";</code><br>即将“salt-密码”的SHA1值。<br><strong>同时这意味着系统将密码明文或使用可逆加密方式保存于数据库中，而非常用的MD5+SHA1不可逆方式保存，否则系统无法验证密码正确性，即校方或黑客可轻易获取密码原文。</strong><br>Postman检验通过。<img src="/images/1012356169.png" alt="QQ截图20201004234333.png"><br>获得需要的接口以后，接下来就是正片——爬虫的编写。</p>
 <hr>
 <p>由于使用了sha1，需要引用hashlib的sha1库；<br>由于需要获取当日时间以下载当日课表，需要time库；<br>由于使用json获取数据，需要json库；<br>由于是爬虫，那么requests库是少不了的。</p>
-<pre class="line-numbers language-none"><code class="language-none">from hashlib import sha1
-import json, requests, time<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>from hashlib import sha1
+import json, requests, time
+</code></pre>
 <p>和平常不同的是，登录包的json数据需要放在requests.post的data参数中，而不是params参数。<br>几番循环，就将当日的教室占用情况以教学楼——课时——教室的树状结构保存下来。<br>将输出结果给学长看，学长认为这不够直观，希望能够导出为Excel。<br>纯程序写Excel是不可能的，这玩意烧脑。<br>当初用PHP的PHPSpreadSheet写Zhixue-K的成绩导出都够呛。<br>最后我从学长那把原来的表格拿了过来，将各个教室/课时的表格坐标一个个输入，这样的话就可以直接编辑，不用考虑表格的格式问题。</p>
 <hr>
 <p>我使用的Excel库是xlutils，没有安装的同学可以使用pip安装：<br><code>pip install xlutils</code><br>安装时会自动安装依赖的xlrd（Excel读库）和xlwt（Excel写库）<br>之后遍历之前的树状结构，将数据写入表格，大功告成。<br><img src="/images/1377448005.jpg" alt="IMG_20201004_235839.jpg"><br>（<del>顺便，我不是强者，我是废物</del>）</p>
@@ -965,6 +966,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -975,6 +982,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1009,7 +1023,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

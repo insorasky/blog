@@ -116,7 +116,7 @@
           
       <description>&lt;p&gt;&lt;code&gt;lsusb&lt;/code&gt;和&lt;code&gt;sudo lshw&lt;/code&gt;可看到摄像头。&lt;br&gt;修复摄像头设备权限即可。老Ubuntu了。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;1.&lt;code&gt;ls -l /dev/video*&lt;/code&gt;查看权限如下：&lt;pre</description>
+&lt;li&gt;1.&lt;code&gt;ls -l</description>
           
         
       
@@ -206,7 +206,7 @@
           
           
       <description>&lt;p&gt;做项目要用，装一个咯。&lt;br&gt;这里的配置是安装Python库并使用CPU_ONLY模式。&lt;br&gt;改天看看怎么启用OpenCL吧。虽然估计这破核显快不到哪去。&lt;br&gt;1.克隆openpose仓库及caffe、pybind11、模型&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</description>
+&lt;pre&gt;&lt;code&gt;git clone</description>
           
         
       
@@ -295,7 +295,13 @@
         
           
           
-      <description>&lt;pre class=&quot;line-numbers language-cpp&quot; data-language=&quot;cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token</description>
+      <description>&lt;pre&gt;&lt;code class=&quot;cpp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+struct Node{
+    int data;
+    Node *lchild, *rchild;
+};
+bool compare(Node *p,</description>
           
         
       
@@ -390,7 +396,7 @@
           
       <description>&lt;p&gt;作为一个xposed模块，检测自身是否启用显然是最基础的功能了。本教程使用kotlin，Java应该差不多。&lt;br&gt;原理是Hook自身，修改状态语以提示用户。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;1.在准备显示启用状态的Activity中定义函数&lt;code&gt;isEnabled&lt;/code&gt;：&lt;pre</description>
+&lt;li&gt;1.在准备显示启用状态的Activity中定义函数&lt;code&gt;isEnabled&lt;/code&gt;：&lt;pre&gt;&lt;</description>
           
         
       
@@ -422,7 +428,7 @@
           
           
       <description>&lt;p&gt;最近做了一个需要使用代理的Python小工具，看到证书详情里的&lt;code&gt;mitmproxy&lt;/code&gt;强迫症犯了，于是把它改了。&lt;br&gt;1.引用所需的库&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-python&quot;</description>
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;from mitmproxy.certs import</description>
           
         
       
@@ -452,7 +458,10 @@
           
           
       <description>&lt;p&gt;数据结构作业&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-cpp&quot; data-language=&quot;cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span</description>
+&lt;pre&gt;&lt;code class=&quot;cpp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+enum status_code {success, overflow, underflow};
+template</description>
           
         
       
@@ -509,7 +518,10 @@
         
           
           
-      <description>&lt;pre class=&quot;line-numbers language-kotlin&quot; data-language=&quot;kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;object&lt;/span&gt; HexUtils</description>
+      <description>&lt;pre&gt;&lt;code class=&quot;kotlin&quot;&gt;object HexUtils {
+    fun hexStringToBytes(hexString: String?): ByteArray? {
+        @Suppress(&quot;NAME_SHADOWING&quot;)
+       </description>
           
         
       
@@ -538,9 +550,9 @@
         
           
           
-      <description>&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;\\.\globalroot\device\condrv\kernelconnect
+      <description>&lt;pre&gt;&lt;code&gt;    \\.\globalroot\device\condrv\kernelconnect
 
-cd c:\:$i30:$bitmap&lt;span</description>
+    cd</description>
           
         
       

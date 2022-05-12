@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -448,17 +448,19 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>默认情况下，TP6当开启调试模式时，试图访问一个不存在的控制器时会返回以下页面：<br><img src="/images/2611135732.png"><br>如果你没有打开调试模式就长这样：<br><img src="/images/3972674340.png"><br>一般情况下，“找不到控制器”对于用户来说就是404找不到页面，并且在调试模式没有关闭时容易泄露服务器信息。<br>##1.http_exception_template（仅适用于部署模式）<br>ThinkPHP自带了http_exception_template配置用于设置抛出HTTP错误时使用的模板文件。<br>优点：配置简单；缺点：仅适用于部署模式、各个错误码需单独设置。<br>在app.php内添加以下内容：</p>
-<pre class="line-numbers language-none"><code class="language-none">'http_exception_template'    =&gt;  [
+<pre><code>'http_exception_template'    =&gt;  [
     // 404
     404 =&gt; \think\facade\App::getRootPath().'404.html', 
     //getRootPath为获取项目根目录，可根据实际情况修改
     // 其他错误码
     401 =&gt; \think\facade\App::getRootPath().'401.html',
-]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+]
+</code></pre>
 <p>##2.ExceptionHandle<br>ExceptionHandle.php中预置了异常处理类，只需捕获HttpException异常即可返回各个页面的错误码。<br>在ExceptionHandle.php自带的<code>return parent::render($request, $e);</code>下方添加以下内容：</p>
-<pre class="line-numbers language-none"><code class="language-none">if($e instanceof HttpException){
+<pre><code>if($e instanceof HttpException){
     return response("网页错误：".$e-&gt;getStatusCode(), $e-&gt;getStatusCode());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <p>其中response助手函数的第一个参数为返回的页面内容，可自行修改或套模板。</p>
 
         
@@ -953,6 +955,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -963,6 +971,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -997,7 +1012,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

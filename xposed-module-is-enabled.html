@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -449,28 +449,34 @@
     
         <p>作为一个xposed模块，检测自身是否启用显然是最基础的功能了。本教程使用kotlin，Java应该差不多。<br>原理是Hook自身，修改状态语以提示用户。</p>
 <ul>
-<li>1.在准备显示启用状态的Activity中定义函数<code>isEnabled</code>：<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">isEnabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String<span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token string-literal singleline"><span class="token string">"模块未启用！"</span></span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>2.创建窗口时将状态文本控件的值设为<code>isEnabled</code>函数的返回值：<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 假设已经定义名为status的TextView控件并创建ViewBinding</span>
-binding<span class="token punctuation">.</span>status<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token function">isEnabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>3.在hook函数中篡改isEnabled函数的返回值<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">public</span> <span class="token keyword">class</span> Hook<span class="token operator">:</span> IXposedHookLoadPackage<span class="token punctuation">{</span>
-    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">handleLoadPackage</span><span class="token punctuation">(</span>lpparam<span class="token operator">:</span> XC_LoadPackage<span class="token punctuation">.</span>LoadPackageParam<span class="token operator">?</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">when</span><span class="token punctuation">(</span>lpparam<span class="token operator">?</span><span class="token punctuation">.</span>packageName<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token string-literal singleline"><span class="token string">"com.example.xposed.module"</span></span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span> <span class="token comment">// 将这里的包名更改为自己的xposed模块</span>
-                <span class="token keyword">val</span> clazz <span class="token operator">=</span> lpparam<span class="token punctuation">.</span>classLoader<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">loadClass</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"com.example.xposed.module.MainActivity"</span></span><span class="token punctuation">)</span> <span class="token comment">// 将这里的Activity名称更改为显示状态的Activity名称</span>
-                XposedHelpers<span class="token punctuation">.</span><span class="token function">findAndHookMethod</span><span class="token punctuation">(</span>clazz<span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"isEnabled"</span></span><span class="token punctuation">,</span> <span class="token keyword">object</span> <span class="token operator">:</span> <span class="token function">XC_MethodHook</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">beforeHookedMethod</span><span class="token punctuation">(</span>param<span class="token operator">:</span> MethodHookParam<span class="token operator">?</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">beforeHookedMethod</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span>
-                    <span class="token punctuation">}</span>
-                    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">afterHookedMethod</span><span class="token punctuation">(</span>param<span class="token operator">:</span> MethodHookParam<span class="token operator">?</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        param<span class="token operator">?</span><span class="token punctuation">.</span>result <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"模块已启用！"</span></span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>1.在准备显示启用状态的Activity中定义函数<code>isEnabled</code>：<pre><code class="kotlin"> fun isEnabled(): String{
+     return "模块未启用！"
+ }
+</code></pre>
+</li>
+<li>2.创建窗口时将状态文本控件的值设为<code>isEnabled</code>函数的返回值：<pre><code class="kotlin"> // 假设已经定义名为status的TextView控件并创建ViewBinding
+ binding.status.text = isEnabled()
+</code></pre>
+</li>
+<li>3.在hook函数中篡改isEnabled函数的返回值<pre><code class="kotlin">public class Hook: IXposedHookLoadPackage{
+ override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?){
+     when(lpparam?.packageName){
+         "com.example.xposed.module" -&gt; { // 将这里的包名更改为自己的xposed模块
+             val clazz = lpparam.classLoader?.loadClass("com.example.xposed.module.MainActivity") // 将这里的Activity名称更改为显示状态的Activity名称
+             XposedHelpers.findAndHookMethod(clazz, "isEnabled", object : XC_MethodHook() {
+                 override fun beforeHookedMethod(param: MethodHookParam?) {
+                     super.beforeHookedMethod(param)
+                 }
+                 override fun afterHookedMethod(param: MethodHookParam?) {
+                     param?.result = "模块已启用！"
+                 }
+             })
+         }
+     }
+ }
+}
+</code></pre>
+</li>
 </ul>
 <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><ul>
 <li><p>未启用时：<br><img src="/images/131232705.png"></p>
@@ -971,6 +977,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -981,6 +993,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1015,7 +1034,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -167,12 +172,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
       }
     </style>
 
@@ -496,50 +496,50 @@
 <h2 id="申请-DN42-ASN-和-IP"><a href="#申请-DN42-ASN-和-IP" class="headerlink" title="申请 DN42 ASN 和 IP"></a>申请 DN42 ASN 和 IP</h2><p>DN42 使用 OpenPGP 密钥或 SSH密钥验证身份，因此您需要准备好 OpenPGP 或 SSH 密钥，并将其上传至 DN42 的 Gitea 实例，以便后续身份验证。</p>
 <p>首先自然是要注册一个 DN42 地址了。访问<a target="_blank" rel="noopener" href="https://git.dn42.dev/">DN42 Git</a>，注册一个帐号，名称随意，但是后面最好不再更改。</p>
 <p>下一步是将 <a target="_blank" rel="noopener" href="https://git.dn42.dev/dn42/registry">dn42/registry</a> clone 到本地，然后在本地新建一个名称为 <code>你的用户名-今天日期/操作名称</code>（例如： <code>mol-20220510/register</code>）的分支并上传：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://git.dn42.dev/dn42/registry
+<pre><code class="shell">git clone https://git.dn42.dev/dn42/registry
 git checkout -b mol-20220510
-git push --set-upstream origin mol-20220510/register<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+git push --set-upstream origin mol-20220510/register
+</code></pre>
 <p>然后就是填写网络信息了。在 Clone 下来的仓库中新建一系列文件，文件模板可以参照同目录其他参与者，所有项名称、冒号和空格加起来均为20字符，所有文件名均为大写，建议全部使用 OpenPGP 密钥：</p>
 <ul>
 <li><code>data/mntner/[Maintainer 名称]</code> 帐户信息文件</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">mntner:             [Maintainer 名称]
+<pre><code>mntner:             [Maintainer 名称]
 admin-c:            [Administrator 名称]
 tech-c:             [Administrator 名称]
 mnt-by:             [Maintainer 名称]
 source:             DN42
 auth:               pgp-fingerprint [OpenPGP 指纹（如果有的话）]
 auth:               ssh-xxx [SSH 公钥（如果有的话）]
-remarks:            [注释，可以不填]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+remarks:            [注释，可以不填]
+</code></pre>
 <ul>
 <li><code>data/person/[Administrator 名称]</code> 个人信息文件</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">person:             [姓名或其他名称]
+<pre><code>person:             [姓名或其他名称]
 e-mail:             [邮箱]
 contact:            [其它联系方式]
 nic-hdl:            [Administrator 名称]
 mnt-by:             [Maintainer 名称]
-source:             DN42<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+source:             DN42
+</code></pre>
 <ul>
 <li><code>data/aut-num/[ASN 号码]</code> ASN信息文件</li>
 </ul>
 <p>如果有自己的公网ASN的话可以使用，像我这种穷人只能拿一个DN42私有ASN了，比如我的是AS4242420603。</p>
-<pre class="line-numbers language-none"><code class="language-none">aut-num:            [ASN 号码]
+<pre><code>aut-num:            [ASN 号码]
 as-name:            [AS 名称]
 descr:              [注释]
 admin-c:            [Administrator 名称]
 tech-c:             [Administrator 名称]
 mnt-by:             [Maintainer 名称]
-source:             DN42<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+source:             DN42
+</code></pre>
 <ul>
 <li><code>data/inetnum/[IPv4 地址]</code> IPv4信息文件</li>
 </ul>
 <p>DN42内一般申请/27的地址块就够用，/26是无需询问用途的最大地址块。我的地址为<code>172.23.7.64/26</code>，那么文件名为<code>172.23.7.64_26</code>。蓝天佬提到部分隧道引起的IP占用问题，因为DN42内主要使用WireGuard建立隧道，一般无需担心此问题。有一些地址被保留用作特殊用途，如<code>172.20.0.0/24</code>被保留用于Anycast，只能申请<code>/32</code>地址块。</p>
-<pre class="line-numbers language-none"><code class="language-none">inetnum:            [起始IP] - [终止IP]
+<pre><code>inetnum:            [起始IP] - [终止IP]
 netname:            [网络名称]
 remarks:            [注释]
 descr:              [注释]
@@ -551,22 +551,22 @@ nserver:            [反向解析服务器]
 nserver:            [反向解析服务器]
 status:             ASSIGNED
 cidr:               [IP地址段CIDR]
-source:             DN42<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+source:             DN42
+</code></pre>
 <ul>
 <li><code>data/route/[IPv4 地址]</code> IPv4路由信息</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">route:              [IP地址段CIDR]
+<pre><code>route:              [IP地址段CIDR]
 descr:              [注释]
 origin:             [ASN 号码]
 mnt-by:             [Maintainer 名称]
-source:             DN42<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+source:             DN42
+</code></pre>
 <ul>
 <li><code>data/inet6num/[IPv6 地址]</code> IPv6信息文件</li>
 </ul>
 <p>DN42内一般申请/48的地址块，足够任何人使用。</p>
-<pre class="line-numbers language-none"><code class="language-none">inetnum:            [起始IP] - [终止IP]
+<pre><code>inetnum:            [起始IP] - [终止IP]
 netname:            [网络名称]
 remarks:            [注释]
 descr:              [注释]
@@ -578,21 +578,21 @@ nserver:            [反向解析服务器]
 nserver:            [反向解析服务器]
 status:             ASSIGNED
 cidr:               [IP地址段CIDR]
-source:             DN42<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+source:             DN42
+</code></pre>
 <ul>
 <li><code>data/route/[IPv6 地址]</code> IPv6路由信息</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">route:              [IP地址段CIDR]
+<pre><code>route:              [IP地址段CIDR]
 descr:              [注释]
 origin:             [ASN 号码]
 mnt-by:             [Maintainer 名称]
-source:             DN42<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+source:             DN42
+</code></pre>
 <p>到此为止已完成所有信息的添加，创建一份带有签名的 Commit 并提交：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git commit -S -m "提交信息"
-git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="shell">git commit -S -m "提交信息"
+git push
+</code></pre>
 <p>由于DN42 Git一次Pull Request只接受一个Commit，如果有Commit后修改内容的需求，请善用<code>--amend</code>参数后，带<code>-f</code>强制提交。</p>
 <p>接下来回到DN42 Git，发起Pull Request等待合并。</p>
 <p>合并成功后，由于ROA信息需要定时更新，您需要等待最长24小时方可进行Peer。DN42 官方提供的 ROA 更新时间是15分钟一次。</p>
@@ -612,79 +612,68 @@ git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <li>安装 WireGuard 和 Bird2，并确保已有 <code>wg-quick</code> 快速配置工具。新手建议使用这对隧道和BGP程序，老鸟随意。</li>
 </ul>
 <p>启用 Linux 的内核数据包转发功能，禁用 <code>rp_filter</code> 严格模式：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo "net.ipv4.ip_forward=1" &gt;&gt; /etc/sysctl.conf
+<pre><code class="shell">echo "net.ipv4.ip_forward=1" &gt;&gt; /etc/sysctl.conf
 echo "net.ipv6.conf.default.forwarding=1" &gt;&gt; /etc/sysctl.conf
 echo "net.ipv6.conf.all.forwarding=1" &gt;&gt; /etc/sysctl.conf
 echo "net.ipv4.conf.default.rp_filter=0" &gt;&gt; /etc/sysctl.conf
 echo "net.ipv4.conf.all.rp_filter=0" &gt;&gt; /etc/sysctl.conf
-sysctl -p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+sysctl -p
+</code></pre>
 <h3 id="配置-Bird"><a href="#配置-Bird" class="headerlink" title="配置 Bird"></a>配置 Bird</h3><p>根据经验，您应该先建立和外界的Peer再打扫内部的网络，便于调试，少走弯路。PingFinder 和群里的 Ping Bot 可以帮助您调试网络。</p>
 <p>如果您的发行版的 <code>bird.conf</code> 位于 <code>/etc/bird/</code> 就再好不过了；如果不是的话，建议创建这个目录，并将<code>/etc/bird.conf</code>软链过去：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir /etc/bird
+<pre><code class="shell">mkdir /etc/bird
 mv /etc/bird.conf /etc/bird/bird.conf
 ln -s /etc/bird.conf /etc/bird/bird.conf
-mkdir /etc/bird/peers<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+mkdir /etc/bird/peers
+</code></pre>
 <p>根据 <a target="_blank" rel="noopener" href="https://wiki.dn42.us/howto/Bird2">DN42 Wiki</a> 配置Bird，将 <code>/etc/bird/bird.conf</code> 中的内容替换为DN42 Wiki提供的内容即可。文件较长，详细请参考Wiki。</p>
 <p>上文提到了ROA，ROA限制了来源路由，避免了公网中BGP配置错误造成整个网络爆炸的窘境。<del>（虽然DN42也不是没有发生过）</del></p>
 <p>输入 <code>crontab -e</code>，使用 cron 每15分钟更新一次ROA信息（如果习惯使用其它定时程序可随意；可能需要<code>systemctl enable cronie</code>）：</p>
-<pre class="line-numbers language-none"><code class="language-none">*/15 * * * * curl -sfSLR -o /etc/bird/roa_dn42.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf &amp;&amp; curl -sfSLR -o /etc/bird/roa_dn42_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf &amp;&amp; /usr/sbin/birdc configure 1&gt; /dev/null<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code>*/15 * * * * curl -sfSLR -o /etc/bird/roa_dn42.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf &amp;&amp; curl -sfSLR -o /etc/bird/roa_dn42_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf &amp;&amp; /usr/sbin/birdc configure 1&gt; /dev/null
+</code></pre>
 <p>上述命令每15分钟执行一次，下载ROA信息到<code>/etc/bird/dn42_roa_bird2_4.conf</code>和<code>/etc/bird/dn42_roa_bird2_6.conf</code>。</p>
 <p>运行一次<code>birdc configure</code>，确认配置正确，然后就可以愉快地Peer了！</p>
 <h3 id="添加-Peer-信息，建立隧道和BGP"><a href="#添加-Peer-信息，建立隧道和BGP" class="headerlink" title="添加 Peer 信息，建立隧道和BGP"></a>添加 Peer 信息，建立隧道和BGP</h3><p>以下是文件模板：</p>
 <ul>
 <li><code>/etc/wireguard/[给我的隧道起个名字吧].conf</code></li>
 </ul>
-<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Interface</span><span class="token punctuation">]</span></span>
-<span class="token key attr-name">PrivateKey</span> <span class="token punctuation">=</span> <span class="token value attr-value">[您的私钥]</span>
-<span class="token key attr-name">ListenPort</span> <span class="token punctuation">=</span> <span class="token value attr-value">[您的隧道监听端口]</span>
-<span class="token key attr-name">Table</span> <span class="token punctuation">=</span> <span class="token value attr-value">off</span>
-<span class="token key attr-name">PostUp</span> <span class="token punctuation">=</span> <span class="token value attr-value">ip addr add fe80::603/64 dev %i</span>
-<span class="token key attr-name">PostUp</span> <span class="token punctuation">=</span> <span class="token value attr-value">ip addr add [您的DN42 IPv6地址]/128 dev %i</span>
-<span class="token key attr-name">PostUp</span> <span class="token punctuation">=</span> <span class="token value attr-value">ip addr add [我的DN42 IPv4地址] peer [您的DN42 IPv4地址] dev %i</span>
-<span class="token key attr-name">PostUp</span> <span class="token punctuation">=</span> <span class="token value attr-value">sysctl -w net.ipv6.conf.%i.autoconf=0</span>
+<pre><code class="ini">[Interface]
+PrivateKey = [您的私钥]
+ListenPort = [您的隧道监听端口]
+Table = off
+PostUp = ip addr add fe80::603/64 dev %i
+PostUp = ip addr add [您的DN42 IPv6地址]/128 dev %i
+PostUp = ip addr add [我的DN42 IPv4地址] peer [您的DN42 IPv4地址] dev %i
+PostUp = sysctl -w net.ipv6.conf.%i.autoconf=0
 
-<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Peer</span><span class="token punctuation">]</span></span>
-<span class="token key attr-name">PublicKey</span> <span class="token punctuation">=</span> <span class="token value attr-value">[我的公钥]</span>
-<span class="token key attr-name">Endpoint</span> <span class="token punctuation">=</span> <span class="token value attr-value">[我的endpoint]:[您从bot获得的endpoint端口号]</span>
-<span class="token key attr-name">AllowedIPs</span> <span class="token punctuation">=</span> <span class="token value attr-value">10.0.0.0/8, 172.20.0.0/14, 172.31.0.0/16, fd00::/8, fe80::/64</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+[Peer]
+PublicKey = [我的公钥]
+Endpoint = [我的endpoint]:[您从bot获得的endpoint端口号]
+AllowedIPs = 10.0.0.0/8, 172.20.0.0/14, 172.31.0.0/16, fd00::/8, fe80::/64
+</code></pre>
 <ul>
 <li><p><code>/etc/bird/peers/[给我的BGP Peer起个名字吧].conf（启用Multiprotocol）</code></p>
-<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini">protocol bgp [BGP Peer名称] from dnpeers {
-    neighbor fe80::603 % '[隧道名]' as 4242420603;
-    direct;
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p><code>/etc/bird/peers/[给我的BGP Peer起个名字吧].conf（未启用Multiprotocol）</code></p>
-<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini">protocol bgp [BGP Peer名称]_v4 from dnpeers {
-    neighbor [我的DN42 IPv4地址] as 4242420603;
-    direct;
-    ipv6 {
-        import none;
-        export none;
-    };
+<pre><code class="ini">protocol bgp [BGP Peer名称] from dnpeers {
+  neighbor fe80::603 % '[隧道名]' as 4242420603;
+  direct;
 };
-
-protocol bgp [BGP Peer名称]_v6 from dnpeers {
-    neighbor fe80::603 % '[隧道名]' as 4242420603;
-    direct;
-    ipv4 {
-        import none;
-        export none;
-    };
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</code></pre>
+</li>
+<li><p><code>/etc/bird/peers/[给我的BGP Peer起个名字吧].conf（未启用Multiprotocol）</code><br>```ini<br>protocol bgp [BGP Peer名称]_v4 from dnpeers {<br>  neighbor [我的DN42 IPv4地址] as 4242420603;<br>  direct;<br>  ipv6 {<br>  import none;<br>  export none;<br>  };<br>};</p>
+</li>
 </ul>
-<p>添加完文件后，执行以下命令启用隧道和配置Bird：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd /etc/wireguard
+<p>protocol bgp [BGP Peer名称]_v6 from dnpeers {<br>    neighbor fe80::603 % ‘[隧道名]’ as 4242420603;<br>    direct;<br>    ipv4 {<br>        import none;<br>        export none;<br>    };<br>};</p>
+<pre><code>
+添加完文件后，执行以下命令启用隧道和配置Bird：
+```shell
+cd /etc/wireguard
 wg-quick up [隧道名]
-birdc configure<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+birdc configure
+</code></pre>
 <p>使用以下命令检查隧道和BGP是否配置成功：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wg show
-birdc s p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="shell">wg show
+birdc s p
+</code></pre>
 <p>若 WireGuard 有双向数据传输、Bird BGP显示<code>Established</code>，则恭喜您有了第一条Peer！</p>
 <h2 id="打理内网"><a href="#打理内网" class="headerlink" title="打理内网"></a>打理内网</h2><p>「未完待续」</p>
 
@@ -1180,6 +1169,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -1190,6 +1185,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -1224,7 +1226,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2020;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {
