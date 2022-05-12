@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>inSoraSky BLOG</title>
+    <link>https://blog.sorasky.in/</link>
+    
+    <atom:link href="https://blog.sorasky.in/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>inSoraSky BLOG</description>
+    <pubDate>Tue, 10 May 2022 01:31:29 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>在 Visual Studio Code 的 Remote SSH 应用 GPG Agent</title>
+      <link>https://blog.sorasky.in/vscode-ssh-gpg-agent.html</link>
+      <guid>https://blog.sorasky.in/vscode-ssh-gpg-agent.html</guid>
+      <pubDate>Tue, 10 May 2022 00:27:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;此内容理论上同时支持Linux/Mac。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;把 GPG 相关的内容安装清楚，最好确保已经能在终端使用 GPG 登录 SSH&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;enable-ssh-support&lt;/code&gt; 加入</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/visual-studio-code/">Visual Studio Code</category>
+      
+      <category domain="https://blog.sorasky.in/tags/gpg/">GPG</category>
+      
+      
+      <comments>https://blog.sorasky.in/vscode-ssh-gpg-agent.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>MolMoe Network 组网记录</title>
+      <link>https://blog.sorasky.in/molmoe-build.html</link>
+      <guid>https://blog.sorasky.in/molmoe-build.html</guid>
+      <pubDate>Mon, 09 May 2022 18:34:32 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;导入&quot;&gt;&lt;a href=&quot;#导入&quot; class=&quot;headerlink&quot; title=&quot;导入&quot;&gt;&lt;/a&gt;导入&lt;/h2&gt;&lt;p&gt;听说 DN42 之后感觉还挺有意思的，就趁着寒假捣鼓了一把，顺便修改了网络结构，通过 ZeroTier 把家里、宿舍、实验室等的网络组合在一起了，并且使用</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/dn42/">DN42</category>
+      
+      <category domain="https://blog.sorasky.in/tags/molmoe/">Molmoe</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/">网络技术</category>
+      
+      
+      <comments>https://blog.sorasky.in/molmoe-build.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于迁移到Hexo</title>
+      <link>https://blog.sorasky.in/hello-hexo.html</link>
+      <guid>https://blog.sorasky.in/hello-hexo.html</guid>
+      <pubDate>Fri, 11 Mar 2022 09:01:05 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;为什么要迁移博客&quot;&gt;&lt;a href=&quot;#为什么要迁移博客&quot; class=&quot;headerlink&quot; title=&quot;为什么要迁移博客&quot;&gt;&lt;/a&gt;为什么要迁移博客&lt;/h1&gt;&lt;p&gt;我校每个寒暑假均会将宿舍断电，因此这个寒假我的设备被断电，导致包括&lt;code&gt;MolMoe</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/hexo/">Hexo</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
+      
+      
+      <comments>https://blog.sorasky.in/hello-hexo.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>修复Ubuntu20.04摄像头不识别问题</title>
+      <link>https://blog.sorasky.in/ubuntu2004-webcam.html</link>
+      <guid>https://blog.sorasky.in/ubuntu2004-webcam.html</guid>
+      <pubDate>Fri, 12 Nov 2021 15:54:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;code&gt;lsusb&lt;/code&gt;和&lt;code&gt;sudo lshw&lt;/code&gt;可看到摄像头。&lt;br&gt;修复摄像头设备权限即可。老Ubuntu了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.&lt;code&gt;ls -l /dev/video*&lt;/code&gt;查看权限如下：&lt;pre</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/%E6%91%84%E5%83%8F%E5%A4%B4/">摄像头</category>
+      
+      <category domain="https://blog.sorasky.in/tags/ubuntu/">Ubuntu</category>
+      
+      
+      <comments>https://blog.sorasky.in/ubuntu2004-webcam.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>USTC Hackergame 2021 Writeup</title>
+      <link>https://blog.sorasky.in/hg2021.html</link>
+      <guid>https://blog.sorasky.in/hg2021.html</guid>
+      <pubDate>Sat, 30 Oct 2021 13:40:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;今年是本菜鸡第一次参加CTF，本人学的不是信息安全专业，因此对大多数CTF没什么兴趣。&lt;br&gt;参加本次&lt;a href=&quot;http://hack.lug.ustc.edu.cn/&quot;&gt;Hackergame&lt;/a&gt;是因为经常水&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</category>
+      
+      <category domain="https://blog.sorasky.in/tags/hackergame/">HackerGame</category>
+      
+      <category domain="https://blog.sorasky.in/tags/writeup/">Writeup</category>
+      
+      
+      <comments>https://blog.sorasky.in/hg2021.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>NixOS安装open-vm-tools</title>
+      <link>https://blog.sorasky.in/nix-open-vm-tools.html</link>
+      <guid>https://blog.sorasky.in/nix-open-vm-tools.html</guid>
+      <pubDate>Sun, 26 Sep 2021 17:00:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;1.在&lt;code&gt;configuration.nix&lt;/code&gt;添加&lt;code&gt;open-vm-tools&lt;/code&gt;软件包；&lt;br&gt;2.在&lt;code&gt;configuration.nix&lt;/code&gt;添加以下行：&lt;code&gt;virtualisation.vmware.guest.enabl</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/vmware/">VMware</category>
+      
+      <category domain="https://blog.sorasky.in/tags/nixos/">NixOS</category>
+      
+      
+      <comments>https://blog.sorasky.in/nix-open-vm-tools.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>macOS安装openpose</title>
+      <link>https://blog.sorasky.in/openpose-macos.html</link>
+      <guid>https://blog.sorasky.in/openpose-macos.html</guid>
+      <pubDate>Fri, 03 Sep 2021 04:39:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;做项目要用，装一个咯。&lt;br&gt;这里的配置是安装Python库并使用CPU_ONLY模式。&lt;br&gt;改天看看怎么启用OpenCL吧。虽然估计这破核显快不到哪去。&lt;br&gt;1.克隆openpose仓库及caffe、pybind11、模型&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/openpose/">OpenPose</category>
+      
+      <category domain="https://blog.sorasky.in/tags/macos/">macOS</category>
+      
+      
+      <comments>https://blog.sorasky.in/openpose-macos.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>HBuilderX自带uniapp-cli食用方法</title>
+      <link>https://blog.sorasky.in/hx-uniapp-cli.html</link>
+      <guid>https://blog.sorasky.in/hx-uniapp-cli.html</guid>
+      <pubDate>Thu, 12 Aug 2021 14:21:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;最近写了一个一键发布微信小程序的HBuilderX插件，需要手动执行Uni-App的编译命令。官方文档中只有通过cli创建的项目才能通过cli编译项目，经过翻找HBuilderX的日志以及阅读编译器的代码，将uniapp-cli编译方法整理如下（此处以macOS版为例，其他操作系统同理）：&lt;/</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/uni-app/">Uni-App</category>
+      
+      <category domain="https://blog.sorasky.in/tags/hbuilderx/">HBuilderX</category>
+      
+      
+      <comments>https://blog.sorasky.in/hx-uniapp-cli.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数据结构 二叉树和森林的小系统</title>
+      <link>https://blog.sorasky.in/tree-forest.html</link>
+      <guid>https://blog.sorasky.in/tree-forest.html</guid>
+      <pubDate>Wed, 07 Jul 2021 17:34:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;del&gt;数据结构虐我千百遍</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/c/">C++</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">哈夫曼树</category>
+      
+      
+      <comments>https://blog.sorasky.in/tree-forest.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>输出哈夫曼树各叶子结点的编码</title>
+      <link>https://blog.sorasky.in/huffman-codes.html</link>
+      <guid>https://blog.sorasky.in/huffman-codes.html</guid>
+      <pubDate>Thu, 10 Jun 2021 13:11:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;pre class=&quot;line-numbers language-cpp&quot; data-language=&quot;cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/c/">C++</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">哈夫曼树</category>
+      
+      
+      <comments>https://blog.sorasky.in/huffman-codes.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>自编译 linux下pycryptodome和lxml x86-64二进制文件</title>
+      <link>https://blog.sorasky.in/pycrypto-lxml.html</link>
+      <guid>https://blog.sorasky.in/pycrypto-lxml.html</guid>
+      <pubDate>Sat, 05 Jun 2021 02:21:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;网上的版本都非常旧了，这里的pycryptodome版本为3.10.1，支持用于腾讯云函数的层。&lt;br&gt;pycryptodome: &lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%87%BD%E6%95%B0/">腾讯云函数</category>
+      
+      <category domain="https://blog.sorasky.in/tags/serverless/">serverless</category>
+      
+      <category domain="https://blog.sorasky.in/tags/pycryptodome/">pycryptodome</category>
+      
+      <category domain="https://blog.sorasky.in/tags/lxml/">lxml</category>
+      
+      
+      <comments>https://blog.sorasky.in/pycrypto-lxml.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>inSoraSky Telegram贴纸下载API</title>
+      <link>https://blog.sorasky.in/telegram-sticker-api.html</link>
+      <guid>https://blog.sorasky.in/telegram-sticker-api.html</guid>
+      <pubDate>Fri, 28 May 2021 16:53:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;如果需要&lt;code&gt;https&lt;/code&gt;，请自行更改协议前缀。&lt;br&gt;1.获取贴纸包信息API：&lt;br&gt;&lt;code&gt;http://service.sorasky.in/Stick/get_sticker_set?name=（贴纸包名称）&lt;/code&gt;&lt;br&gt;2.下载贴纸API：&lt;br&gt;&lt;c</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/telegram/">Telegram</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E8%B4%B4%E7%BA%B8/">贴纸</category>
+      
+      
+      <comments>https://blog.sorasky.in/telegram-sticker-api.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>xposed模块检测自身是否启用(kotlin)</title>
+      <link>https://blog.sorasky.in/xposed-module-is-enabled.html</link>
+      <guid>https://blog.sorasky.in/xposed-module-is-enabled.html</guid>
+      <pubDate>Fri, 28 May 2021 16:10:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;作为一个xposed模块，检测自身是否启用显然是最基础的功能了。本教程使用kotlin，Java应该差不多。&lt;br&gt;原理是Hook自身，修改状态语以提示用户。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.在准备显示启用状态的Activity中定义函数&lt;code&gt;isEnabled&lt;/code&gt;：&lt;pre</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/android/">Android</category>
+      
+      <category domain="https://blog.sorasky.in/tags/kotlin/">Kotlin</category>
+      
+      <category domain="https://blog.sorasky.in/tags/xposed/">Xposed</category>
+      
+      
+      <comments>https://blog.sorasky.in/xposed-module-is-enabled.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>自定义mitmproxy使用的证书颁发者名称</title>
+      <link>https://blog.sorasky.in/custom-mitm-ca-authority.html</link>
+      <guid>https://blog.sorasky.in/custom-mitm-ca-authority.html</guid>
+      <pubDate>Sat, 17 Apr 2021 15:37:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;最近做了一个需要使用代理的Python小工具，看到证书详情里的&lt;code&gt;mitmproxy&lt;/code&gt;强迫症犯了，于是把它改了。&lt;br&gt;1.引用所需的库&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-python&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/python/">Python</category>
+      
+      <category domain="https://blog.sorasky.in/tags/mitmproxy/">mitmproxy</category>
+      
+      
+      <comments>https://blog.sorasky.in/custom-mitm-ca-authority.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>用C++写一个栈并判断括号是否配对</title>
+      <link>https://blog.sorasky.in/cpp-stack.html</link>
+      <guid>https://blog.sorasky.in/cpp-stack.html</guid>
+      <pubDate>Wed, 31 Mar 2021 10:39:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;数据结构作业&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-cpp&quot; data-language=&quot;cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/c/">C++</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      
+      <comments>https://blog.sorasky.in/cpp-stack.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>mirai-console-loader在Linux下的使用</title>
+      <link>https://blog.sorasky.in/mirai-console-linux.html</link>
+      <guid>https://blog.sorasky.in/mirai-console-linux.html</guid>
+      <pubDate>Sun, 07 Mar 2021 15:32:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;本人环境：&lt;code&gt;CentOS 7 + 自带的JRE1.8.0&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-安装JDK11&quot;&gt;&lt;a href=&quot;#1-安装JDK11&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/mirai/">Mirai</category>
+      
+      
+      <comments>https://blog.sorasky.in/mirai-console-linux.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>kotlin 十六进制文本(String)和字节集(ByteArray)互转</title>
+      <link>https://blog.sorasky.in/kt-str-bytearray.html</link>
+      <guid>https://blog.sorasky.in/kt-str-bytearray.html</guid>
+      <pubDate>Tue, 23 Feb 2021 14:41:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;pre class=&quot;line-numbers language-kotlin&quot; data-language=&quot;kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;object&lt;/span&gt; HexUtils</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/android/">Android</category>
+      
+      <category domain="https://blog.sorasky.in/tags/kotlin/">Kotlin</category>
+      
+      
+      <comments>https://blog.sorasky.in/kt-str-bytearray.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>记最近的两个Windows致死路径</title>
+      <link>https://blog.sorasky.in/win-err-path.html</link>
+      <guid>https://blog.sorasky.in/win-err-path.html</guid>
+      <pubDate>Thu, 21 Jan 2021 11:14:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;\\.\globalroot\device\condrv\kernelconnect
+
+cd c:\:$i30:$bitmap&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/windows/">Windows</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E8%93%9D%E5%B1%8F/">蓝屏</category>
+      
+      
+      <comments>https://blog.sorasky.in/win-err-path.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>ThinkPHP6.0找不到控制器时展示404页面而非“方法不存在”错误页</title>
+      <link>https://blog.sorasky.in/tp6-404-page.html</link>
+      <guid>https://blog.sorasky.in/tp6-404-page.html</guid>
+      <pubDate>Sun, 10 Jan 2021 04:00:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;默认情况下，TP6当开启调试模式时，试图访问一个不存在的控制器时会返回以下页面：&lt;br&gt;&lt;img src=&quot;/images/2611135732.png&quot;&gt;&lt;br&gt;如果你没有打开调试模式就长这样：&lt;br&gt;&lt;img</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/thinkphp/">ThinkPHP</category>
+      
+      <category domain="https://blog.sorasky.in/tags/404/">404</category>
+      
+      
+      <comments>https://blog.sorasky.in/tp6-404-page.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>你好，2021！</title>
+      <link>https://blog.sorasky.in/hello-2021.html</link>
+      <guid>https://blog.sorasky.in/hello-2021.html</guid>
+      <pubDate>Thu, 31 Dec 2020 16:00:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;这个跨年是inSoraSky博客的第一次跨年，在博客成立175天暨2021元旦之际，祝大家新年快乐！&lt;br&gt;2020年，我在本博客共发布了&lt;strong&gt;31&lt;/strong&gt;篇文章（包含已隐藏文章），累计PV达近&lt;strong&gt;58000&lt;/strong&gt;次，独立访客达近&lt;strong&gt;12</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/2021/">2021</category>
+      
+      
+      <comments>https://blog.sorasky.in/hello-2021.html#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
