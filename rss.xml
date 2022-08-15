@@ -1,0 +1,1109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>inSoraSky BLOG</title>
+    <link>https://blog.sorasky.in/</link>
+    
+    <atom:link href="https://blog.sorasky.in/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>inSoraSky BLOG</description>
+    <pubDate>Sat, 14 May 2022 15:03:19 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>安达与岛村第五卷名场面</title>
+      <link>https://blog.sorasky.in/adashima5-adachi.html</link>
+      <guid>https://blog.sorasky.in/adashima5-adachi.html</guid>
+      <pubDate>Sat, 14 May 2022 14:46:03 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;谁再说不知道名场面是啥我就把这呼ta脸上&quot;&gt;&lt;a href=&quot;#谁再说不知道名场面是啥我就把这呼ta脸上&quot; class=&quot;headerlink&quot; title=&quot;谁再说不知道名场面是啥我就把这呼ta脸上 :-)&quot;&gt;&lt;/a&gt;&lt;code&gt;谁再说不知道名场面是啥我就把这呼ta脸上</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/%E5%AE%89%E8%BE%BE%E4%B8%8E%E5%B2%9B%E6%9D%91/">安达与岛村</category>
+      
+      
+      <comments>https://blog.sorasky.in/adashima5-adachi.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>在 Visual Studio Code 的 Remote SSH 应用 GPG Agent</title>
+      <link>https://blog.sorasky.in/vscode-ssh-gpg-agent.html</link>
+      <guid>https://blog.sorasky.in/vscode-ssh-gpg-agent.html</guid>
+      <pubDate>Tue, 10 May 2022 00:27:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;此内容理论上同时支持Linux/Mac。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;把 GPG 相关的内容安装清楚，最好确保已经能在终端使用 GPG 登录 SSH&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;enable-ssh-support&lt;/code&gt; 加入 &lt;code&gt;~/.ssh/gpg-agent.conf&lt;/code&gt; 中&lt;/li&gt;
+&lt;li&gt;创建 &lt;code&gt;ssh-gpg&lt;/code&gt; 文件，赋予可执行权限，内容如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;#!/bin/sh
+export GPG_TTY=$TTY
+unset SSH_AGENT_PID
+if [ &quot;${gnupg_SSH_AUTH_SOCK_by:-0}&quot; -ne $$ ]; then
+  export SSH_AUTH_SOCK=&quot;$(gpgconf --list-dirs agent-ssh-socket)&quot;
+fi
+gpgconf --launch gpg-agent
+ssh $*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;修改 VSCode</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/visual-studio-code/">Visual Studio Code</category>
+      
+      <category domain="https://blog.sorasky.in/tags/gpg/">GPG</category>
+      
+      
+      <comments>https://blog.sorasky.in/vscode-ssh-gpg-agent.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>MolMoe Network 组网记录</title>
+      <link>https://blog.sorasky.in/molmoe-build.html</link>
+      <guid>https://blog.sorasky.in/molmoe-build.html</guid>
+      <pubDate>Mon, 09 May 2022 18:34:32 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;导入&quot;&gt;&lt;a href=&quot;#导入&quot; class=&quot;headerlink&quot; title=&quot;导入&quot;&gt;&lt;/a&gt;导入&lt;/h2&gt;&lt;p&gt;听说 DN42 之后感觉还挺有意思的，就趁着寒假捣鼓了一把，顺便修改了网络结构，通过 ZeroTier 把家里、宿舍、实验室等的网络组合在一起了，并且使用 iBGP 自动路由。学到不少计算机网络知识，受益匪浅。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://dn42.mol.moe/&quot;&gt;点此和 Molmoe Network 一起贴贴&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;感谢 Lan Tian 的博客指引方向：&lt;a href=&quot;http://lantian.pub/article/modify-website/dn42-experimental-network-2020.lantian/&quot;&gt;Clearnet&lt;/a&gt; &lt;a href=&quot;http://lantian.dn42/article/modify-website/dn42-experimental-network-2020.lantian/&quot;&gt;DN42&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/Dn42Chat&quot;&gt;非官方 DN42 Telegram 群组&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;申请-DN42-ASN-和-IP&quot;&gt;&lt;a href=&quot;#申请-DN42-ASN-和-IP&quot; class=&quot;headerlink&quot; title=&quot;申请 DN42 ASN 和 IP&quot;&gt;&lt;/a&gt;申请 DN42 ASN 和 IP&lt;/h2&gt;&lt;p&gt;DN42 使用 OpenPGP 密钥或 SSH密钥验证身份，因此您需要准备好 OpenPGP 或 SSH 密钥，并将其上传至 DN42 的 Gitea 实例，以便后续身份验证。&lt;/p&gt;
+&lt;p&gt;首先自然是要注册一个 DN42 地址了。访问&lt;a href=&quot;https://git.dn42.dev/&quot;&gt;DN42 Git&lt;/a&gt;，注册一个帐号，名称随意，但是后面最好不再更改。&lt;/p&gt;
+&lt;p&gt;下一步是将 &lt;a href=&quot;https://git.dn42.dev/dn42/registry&quot;&gt;dn42/registry&lt;/a&gt; clone 到本地，然后在本地新建一个名称为 &lt;code&gt;你的用户名-今天日期/操作名称&lt;/code&gt;（例如： &lt;code&gt;mol-20220510/register&lt;/code&gt;）的分支并上传：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;git clone https://git.dn42.dev/dn42/registry
+git checkout -b mol-20220510
+git push --set-upstream origin mol-20220510/register
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后就是填写网络信息了。在 Clone 下来的仓库中新建一系列文件，文件模板可以参照同目录其他参与者，所有项名称、冒号和空格加起来均为20字符，所有文件名均为大写，建议全部使用 OpenPGP 密钥：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;data/mntner/[Maintainer 名称]&lt;/code&gt; 帐户信息文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;mntner:             [Maintainer 名称]
+admin-c:            [Administrator 名称]
+tech-c:             [Administrator 名称]
+mnt-by:             [Maintainer 名称]
+source:             DN42
+auth:               pgp-fingerprint [OpenPGP 指纹（如果有的话）]
+auth:               ssh-xxx [SSH 公钥（如果有的话）]
+remarks:            [注释，可以不填]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;data/person/[Administrator 名称]&lt;/code&gt; 个人信息文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;person:             [姓名或其他名称]
+e-mail:             [邮箱]
+contact:            [其它联系方式]
+nic-hdl:            [Administrator 名称]
+mnt-by:             [Maintainer 名称]
+source:             DN42
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;data/aut-num/[ASN 号码]&lt;/code&gt; ASN信息文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果有自己的公网ASN的话可以使用，像我这种穷人只能拿一个DN42私有ASN了，比如我的是AS4242420603。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;aut-num:            [ASN 号码]
+as-name:            [AS 名称]
+descr:              [注释]
+admin-c:            [Administrator 名称]
+tech-c:             [Administrator 名称]
+mnt-by:             [Maintainer 名称]
+source:             DN42
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;data/inetnum/[IPv4 地址]&lt;/code&gt; IPv4信息文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DN42内一般申请/27的地址块就够用，/26是无需询问用途的最大地址块。我的地址为&lt;code&gt;172.23.7.64/26&lt;/code&gt;，那么文件名为&lt;code&gt;172.23.7.64_26&lt;/code&gt;。蓝天佬提到部分隧道引起的IP占用问题，因为DN42内主要使用WireGuard建立隧道，一般无需担心此问题。有一些地址被保留用作特殊用途，如&lt;code&gt;172.20.0.0/24&lt;/code&gt;被保留用于Anycast，只能申请&lt;code&gt;/32&lt;/code&gt;地址块。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;inetnum:            [起始IP] - [终止IP]
+netname:            [网络名称]
+remarks:            [注释]
+descr:              [注释]
+country:            [地区代码，看得懂这篇文章的一般是CN/HK/MO/TW/SG]
+admin-c:            [Administrator 名称]
+tech-c:             [Administrator 名称]
+mnt-by:             [Maintainer 名称]
+nserver:           </description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/dn42/">DN42</category>
+      
+      <category domain="https://blog.sorasky.in/tags/molmoe/">Molmoe</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/">网络技术</category>
+      
+      
+      <comments>https://blog.sorasky.in/molmoe-build.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于迁移到Hexo</title>
+      <link>https://blog.sorasky.in/hello-hexo.html</link>
+      <guid>https://blog.sorasky.in/hello-hexo.html</guid>
+      <pubDate>Fri, 11 Mar 2022 09:01:05 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;为什么要迁移博客&quot;&gt;&lt;a href=&quot;#为什么要迁移博客&quot; class=&quot;headerlink&quot; title=&quot;为什么要迁移博客&quot;&gt;&lt;/a&gt;为什么要迁移博客&lt;/h1&gt;&lt;p&gt;我校每个寒暑假均会将宿舍断电，因此这个寒假我的设备被断电，导致包括&lt;code&gt;MolMoe Network&lt;/code&gt;在内的一个节点下线，存放在其上的原有使用&lt;code&gt;Typecho&lt;/code&gt;搭建的&lt;code&gt;inSoraSky BLOG&lt;/code&gt;下线。&lt;/p&gt;
+&lt;p&gt;故决意迁移博客至&lt;code&gt;GitHub Pages&lt;/code&gt;，以应对可能的故障问题。原有的博客文章将会统一迁移至新博客。&lt;/p&gt;
+&lt;h1 id=&quot;迁移安排&quot;&gt;&lt;a href=&quot;#迁移安排&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/hexo/">Hexo</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
+      
+      
+      <comments>https://blog.sorasky.in/hello-hexo.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>修复Ubuntu20.04摄像头不识别问题</title>
+      <link>https://blog.sorasky.in/ubuntu2004-webcam.html</link>
+      <guid>https://blog.sorasky.in/ubuntu2004-webcam.html</guid>
+      <pubDate>Fri, 12 Nov 2021 15:54:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;code&gt;lsusb&lt;/code&gt;和&lt;code&gt;sudo lshw&lt;/code&gt;可看到摄像头。&lt;br&gt;修复摄像头设备权限即可。老Ubuntu了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.&lt;code&gt;ls -l /dev/video*&lt;/code&gt;查看权限如下：&lt;pre&gt;&lt;code&gt;crw-rw----+ 1 root video 81, 0 11月 12 23:35 /dev/video0
+crw-rw----+ 1 root video 81, 1 11月 12 23:35 /dev/video1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;2.执行&lt;code&gt;sudo chown root:video /dev/video*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;3.执行&lt;code&gt;sudo chmod 666 /dev/video*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;4.打开浏览器测试，可以识别了。修复后权限如下：&lt;pre&gt;&lt;code&gt;crw-rw-rw-+ 1 root video 81, 0 11月 12 23:35 /dev/video0
+crw-rw-rw-+ 1 root video 81, 1 11月 12 23:35</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/%E6%91%84%E5%83%8F%E5%A4%B4/">摄像头</category>
+      
+      <category domain="https://blog.sorasky.in/tags/ubuntu/">Ubuntu</category>
+      
+      
+      <comments>https://blog.sorasky.in/ubuntu2004-webcam.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>USTC Hackergame 2021 Writeup</title>
+      <link>https://blog.sorasky.in/hg2021.html</link>
+      <guid>https://blog.sorasky.in/hg2021.html</guid>
+      <pubDate>Sat, 30 Oct 2021 13:40:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;今年是本菜鸡第一次参加CTF，本人学的不是信息安全专业，因此对大多数CTF没什么兴趣。&lt;br&gt;参加本次&lt;a href=&quot;http://hack.lug.ustc.edu.cn/&quot;&gt;Hackergame&lt;/a&gt;是因为经常水&lt;a href=&quot;http://lug.ustc.edu.cn/&quot;&gt;USTCLUG&lt;/a&gt;的群，挺喜欢USTCLUG的氛围，所以来随便&lt;del&gt;卷一卷&lt;/del&gt;（不是&lt;br&gt;&lt;img src=&quot;/images/3117883759.png&quot;&gt;&lt;br&gt;&lt;del&gt;我记得我最高的时候是84名，深深地体会到了卷王的厉害&lt;/del&gt;&lt;br&gt;对于我这种信息安全外行来说，这个成绩可能还算不错的样子，就是有一道题差点做出来&lt;del&gt;没错就差最后一步了&lt;/del&gt;，如果我做出来的话，完全可以上榜单的……没事，反正第一次不熟练是正常的，反正分数和第100名是一样的，不用后悔，明年再战&lt;br&gt;不用后悔对吧&lt;br&gt;不用后悔的&lt;br&gt;……&lt;br&gt;&lt;strong&gt;&lt;del&gt;呜啊哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇&lt;/del&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;签到&quot;&gt;&lt;a href=&quot;#签到&quot; class=&quot;headerlink&quot; title=&quot;签到&quot;&gt;&lt;/a&gt;签到&lt;/h1&gt;&lt;p&gt;签到题没什么好说的，Unix时间戳贴到URL里rua一把就完事了。&lt;/p&gt;
+&lt;h1 id=&quot;进制十六——参上&quot;&gt;&lt;a href=&quot;#进制十六——参上&quot; class=&quot;headerlink&quot; title=&quot;进制十六——参上&quot;&gt;&lt;/a&gt;进制十六——参上&lt;/h1&gt;&lt;p&gt;遮了明文却没遮住16进制部分，用WinHex(Windows)或者UltraEdit(Windows/macOS)&lt;del&gt;甚至Python/JavaScript&lt;/del&gt;输入相应的16进制部分即得到结果。&lt;br&gt;&lt;img src=&quot;/images/3592711830.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;去吧！追寻自由的电波&quot;&gt;&lt;a href=&quot;#去吧！追寻自由的电波&quot; class=&quot;headerlink&quot; title=&quot;去吧！追寻自由的电波&quot;&gt;&lt;/a&gt;去吧！追寻自由的电波&lt;/h1&gt;&lt;p&gt;无线电是吧，Google“无线电 区分字符串中读音相近的字母”找到单词表。&lt;br&gt;&lt;img src=&quot;/images/1960420648.png&quot;&gt;&lt;br&gt;当时这道题难了我好久，用macOS IINA降速失真严重，用Firefox降速总有听不清的单词，最后忍着安装用不到的软件的悲痛上了上次用还是高一时的Adobe Audition，降速+降调&lt;br&gt;这次算是清晰了，不过第5个单词和最后一个单词听了半天，怀疑这个词真的在单词表里面吗？&lt;br&gt;干脆掏出Google翻译语音识别这个单词——还真TM不在单词表里面@(huaji_han)&lt;br&gt;&lt;img src=&quot;/images/1502879478.jpg&quot;&gt;&lt;br&gt;&lt;del&gt;对不起，是我英语太烂了&lt;/del&gt;&lt;/p&gt;
+&lt;h1 id=&quot;猫咪问答-Pro-Max&quot;&gt;&lt;a href=&quot;#猫咪问答-Pro-Max&quot; class=&quot;headerlink&quot; title=&quot;猫咪问答 Pro Max&quot;&gt;&lt;/a&gt;猫咪问答 Pro Max&lt;/h1&gt;&lt;p&gt;&lt;del&gt;紧跟时事是吧&lt;/del&gt;&lt;br&gt;&lt;del&gt;不知道你们这个猫咪问答炼丹性能能不能和M1 Max有得一拼&lt;/del&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;2017 年，中科大信息安全俱乐部（SEC@USTC）并入中科大 Linux 用户协会（USTCLUG）。目前，信息安全俱乐部的域名（sec.ustc.edu.cn）已经无法访问，但你能找到信息安全俱乐部的社团章程在哪一天的会员代表大会上通过的吗？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提示：输入格式为 YYYYMMDD，如 20211023。请不要回答 “能” 或者 “不能”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;sec.ustc.edu.cn&lt;/code&gt;已经挂了，搜索&lt;code&gt;site:lug.ustc.edu.cn&lt;/code&gt;可以找到LUG官网的存档，但是所有的链接已经被替换为&lt;code&gt;archive.org&lt;/code&gt;的链接。&lt;br&gt;点击首页，点击&lt;code&gt;信息安全俱乐部社团章程&lt;/code&gt;，找到日期。&lt;br&gt;&lt;img src=&quot;/images/38018116.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;中国科学技术大学 Linux 用户协会在近五年多少次被评为校五星级社团？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提示：是一个非负整数。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;点击LUG官网——了解更多，找到可能是答案的内容：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;为了表彰其出色表现，协会于 2011 年 5 月被评为中国科学技术大学优秀学生社团，于 2012 年 5 月、2013 年 5 月及 2014 年 5 月分别被评为中国科学技术大学四星级学生社团，并于 2015 年 5 月、2017 年 7 月、2018 年 9 月、2019 年 8 月及 2020 年 9 月被评为中国科学技术大学五星级学生社团。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;今年是2021年，填了4，答案错误。我当时怀疑是后面的答案出了问题，试了好几次，最后随便试了一下5，过了；后来我听说USTCLUG在2021年也被评选为五星社团了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;中国科学技术大学 Linux 用户协会位于西区图书馆的活动室门口的牌子上“LUG @ USTC”下方的小字是？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提示：正确答案的长度为 27，注意大小写。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;考不上科大的菜逼当然是找图了。Google一下USTCLUG找到图：&lt;br&gt;&lt;img src=&quot;/images/2784090736.png&quot;&gt;&lt;br&gt;&lt;img src=&quot;/images/1457713995.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;在 SIGBOVIK 2021 的一篇关于二进制 Newcomb-Benford 定律的论文中，作者一共展示了多少个数据集对其理论结果进行验证？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提示：是一个非负整数。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Google搜索&lt;code&gt;Newcomb-Benford SIGBOVIK 2021&lt;/code&gt;找到&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</category>
+      
+      <category domain="https://blog.sorasky.in/tags/hackergame/">HackerGame</category>
+      
+      <category domain="https://blog.sorasky.in/tags/writeup/">Writeup</category>
+      
+      
+      <comments>https://blog.sorasky.in/hg2021.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>NixOS安装open-vm-tools</title>
+      <link>https://blog.sorasky.in/nix-open-vm-tools.html</link>
+      <guid>https://blog.sorasky.in/nix-open-vm-tools.html</guid>
+      <pubDate>Sun, 26 Sep 2021 17:00:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;1.在&lt;code&gt;configuration.nix&lt;/code&gt;添加&lt;code&gt;open-vm-tools&lt;/code&gt;软件包；&lt;br&gt;2.在&lt;code&gt;configuration.nix&lt;/code&gt;添加以下行：&lt;code&gt;virtualisation.vmware.guest.enable = true;&lt;/code&gt;；&lt;br&gt;3.运行&lt;code&gt;nixos-rebuild</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/vmware/">VMware</category>
+      
+      <category domain="https://blog.sorasky.in/tags/nixos/">NixOS</category>
+      
+      
+      <comments>https://blog.sorasky.in/nix-open-vm-tools.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>macOS安装openpose</title>
+      <link>https://blog.sorasky.in/openpose-macos.html</link>
+      <guid>https://blog.sorasky.in/openpose-macos.html</guid>
+      <pubDate>Fri, 03 Sep 2021 04:39:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;做项目要用，装一个咯。&lt;br&gt;这里的配置是安装Python库并使用CPU_ONLY模式。&lt;br&gt;改天看看怎么启用OpenCL吧。虽然估计这破核显快不到哪去。&lt;br&gt;1.克隆openpose仓库及caffe、pybind11、模型&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git
+cd openpose/3rdparty
+git clone https://github.com/CMU-Perceptual-Computing-Lab/caffe.git
+git clone https://github.com/pybind/pybind11.git
+cd ../models
+./getModels.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2.安装依赖（先安装brew，不知道怎么安装的请自行搜索）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ..
+./scripts/osx/install_deps.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;3.安装cmake_gui&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install brew-cask-completion # 如果已安装brew cask则跳过此步骤
+brew install --cask cmake
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;4.启动台中找到CMake，source code选openpose根目录，build binaries则选openpose下的build目录。若build目录不存在则自己建一个。&lt;br&gt;5.点击Configure，如果有红色高亮项目出现就多点几次，直到不出现为止。&lt;br&gt;6.勾选BUILD_PYTHON，重复4。&lt;br&gt;7.点击Generate，多点几次。&lt;br&gt;8.在build目录下，执行以下命令开始编译：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;make -j`sysctl -n hw.logicalcpu`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2100364622.png&quot;&gt;&lt;br&gt;9.返回根目录，在根目录运行示例。&lt;br&gt;cpp示例位于&lt;code&gt;openpose/build/examples/tutorial_api_cpp&lt;/code&gt;；&lt;br&gt;python示例&lt;code&gt;openpose/build/examples/tutorial_api_python&lt;/code&gt;。&lt;br&gt;例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 该命令需在openpose根目录运行
+./build/examples/openpose/openpose.bin --video examples/media/video.avi
+# 该命令依赖opencv-python(cv2)，请先安装
+python ./build/examples/tutorial_api_python/01_body_from_image.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/images/577232703.png&quot;&gt;&lt;br&gt;&lt;img</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/openpose/">OpenPose</category>
+      
+      <category domain="https://blog.sorasky.in/tags/macos/">macOS</category>
+      
+      
+      <comments>https://blog.sorasky.in/openpose-macos.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>HBuilderX自带uniapp-cli食用方法</title>
+      <link>https://blog.sorasky.in/hx-uniapp-cli.html</link>
+      <guid>https://blog.sorasky.in/hx-uniapp-cli.html</guid>
+      <pubDate>Thu, 12 Aug 2021 14:21:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;最近写了一个一键发布微信小程序的HBuilderX插件，需要手动执行Uni-App的编译命令。官方文档中只有通过cli创建的项目才能通过cli编译项目，经过翻找HBuilderX的日志以及阅读编译器的代码，将uniapp-cli编译方法整理如下（此处以macOS版为例，其他操作系统同理）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1.&lt;code&gt;cd&lt;/code&gt;至&lt;code&gt;/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli&lt;/code&gt;；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;2.设置环境变量&lt;code&gt;NODE_ENV&lt;/code&gt;为&lt;code&gt;development&lt;/code&gt;或&lt;code&gt;production&lt;/code&gt;；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;3.设置环境变量&lt;code&gt;UNI_INPUT_DIR&lt;/code&gt;为Uni-App项目目录；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;4.设置环境变量&lt;code&gt;UNI_OUTPUT_DIR&lt;/code&gt;为输出目录；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;5.设置环境变量&lt;code&gt;UNI_PLATFORM&lt;/code&gt;为目标平台，参见&lt;a href=&quot;https://uniapp.dcloud.io/quickstart-cli&quot;&gt;官方文档&lt;/a&gt;；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;6.运行命令&lt;code&gt;&quot;/Applications/HBuilderX.app/Contents/HBuilderX/plugins/node/node&quot; --max-old-space-size=2048 /Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/bin/uniapp-cli.js&lt;/code&gt;。&lt;br&gt;运行结果：&lt;br&gt;&lt;img src=&quot;/images/3043982037.png&quot; alt=&quot;iShot2021-08-12</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/uni-app/">Uni-App</category>
+      
+      <category domain="https://blog.sorasky.in/tags/hbuilderx/">HBuilderX</category>
+      
+      
+      <comments>https://blog.sorasky.in/hx-uniapp-cli.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数据结构 二叉树和森林的小系统</title>
+      <link>https://blog.sorasky.in/tree-forest.html</link>
+      <guid>https://blog.sorasky.in/tree-forest.html</guid>
+      <pubDate>Wed, 07 Jul 2021 17:34:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;del&gt;数据结构虐我千百遍 我待数据结构如初恋&lt;/del&gt;&lt;br&gt;&lt;strong&gt;声明：发表在博客的所有数据结构作业源码均为本人独立编写。&lt;/strong&gt;&lt;br&gt;题目：设计一个树和森林的小系统，包含以下功能，并可采用菜单方式来选择相应功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;采用多种方式建树或森林（指定输入、读入文件等）；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;实现各遍历算法；例如：如图2所示的森林，后序遍历森林的序列输出：KEFBGCHIJDALNM&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;与二叉树的相互转换（如图2-图3所示）；&lt;br&gt;&lt;img src=&quot;/images/684325027.png&quot;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;fstream&amp;gt;
+using namespace std;
+struct Node{
+  char data;
+  Node *child, *brother;
+  Node(): data(&#39;\0&#39;), child(NULL), brother(NULL){};
+  Node(char data_): data(data_), child(NULL), brother(NULL){};
+};
+Node *root = new Node(&#39; &#39;);
+void initialize(Node *father, fstream *file){
+  int child_count;
+  if(file) *file &amp;gt;&amp;gt; child_count;
+  else cin &amp;gt;&amp;gt; child_count;
+  if(child_count == 0) return;
+  char data;
+  if(file) *file &amp;gt;&amp;gt; data;
+  else cin &amp;gt;&amp;gt; data;
+  father-&amp;gt;child = new Node(data);
+  initialize(father-&amp;gt;child, file);
+  Node *p = father-&amp;gt;child;
+  for(int i = 1; i &amp;lt; child_count; i++){
+      if(file) *file &amp;gt;&amp;gt; data;
+      else cin &amp;gt;&amp;gt; data;
+      p-&amp;gt;brother = new Node(data);
+      initialize(p-&amp;gt;brother, file);
+      p = p-&amp;gt;brother;
+  }
+}
+void goThrough(Node *head){
+  if(head &amp;amp;&amp;amp; head-&amp;gt;child){
+      Node *p = head-&amp;gt;child;
+      while(p){
+          goThrough(p);
+          cout &amp;lt;&amp;lt; p-&amp;gt;data;
+          p = p-&amp;gt;brother;
+      }
+  }
+}
+struct BNode{
+  char data;
+  BNode *lchild, *rchild;
+  BNode(): data(&#39;\0&#39;), lchild(NULL), rchild(NULL){};
+  BNode(char data_): data(data_), lchild(NULL), rchild(NULL){};
+};
+BNode *broot;
+void convert(Node *thead, BNode *bhead){
+  if(thead){
+      if(thead-&amp;gt;child) bhead-&amp;gt;lchild = new BNode(thead-&amp;gt;child-&amp;gt;data);
+      if(thead-&amp;gt;brother) bhead-&amp;gt;rchild = new BNode(thead-&amp;gt;brother-&amp;gt;data);
+      convert(thead-&amp;gt;child, bhead-&amp;gt;lchild);
+      convert(thead-&amp;gt;brother, bhead-&amp;gt;rchild);
+  }
+}
+void frontGoThrough(BNode *head){
+  if(head){
+      cout &amp;lt;&amp;lt; head-&amp;gt;data;
+      if(head-&amp;gt;lchild) frontGoThrough(head-&amp;gt;lchild);
+      if(head-&amp;gt;rchild) frontGoThrough(head-&amp;gt;rchild);
+  }
+}
+int main(){
+  int method;
+  cout &amp;lt;&amp;lt; &quot;请选择建立方法：1.输入；2.文件：&quot;;
+  cin &amp;gt;&amp;gt; method;
+  // method = 2;
+  switch (method){
+      case 1:
+          cout &amp;lt;&amp;lt; &quot;请输入要建立的树：&quot; &amp;lt;&amp;lt; endl;
+          initialize(root, NULL);
+          break;
+      case 2:{
+          fstream f;
+          f.open(&quot;./tree.txt&quot;, ios::in);
+          if(!f.is_open()){
+              cout &amp;lt;&amp;lt; &quot;文件打开失败！&quot; &amp;lt;&amp;lt; endl;
+              exit(0);
+          }
+          initialize(root, &amp;amp;f);
+          break;
+      }
+      default:
+          cout &amp;lt;&amp;lt; &quot;输入错误，即将退出！&quot; &amp;lt;&amp;lt; endl;
+          exit(0);
+  }
+  root = root-&amp;gt;child;
+  cout &amp;lt;&amp;lt; &quot;建立成功！&quot; &amp;lt;&amp;lt; endl;
+  cout &amp;lt;&amp;lt; &quot;森林后序遍历：&quot;;
+  goThrough(root);
+  broot = new BNode(root-&amp;gt;data);
+  convert(root, broot);
+  cout &amp;lt;&amp;lt; endl &amp;lt;&amp;lt; &quot;转换为二叉树后的前序遍历：&quot;;
+  frontGoThrough(broot);
+  return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例数据：&lt;code&gt;3 A 3 B 2 E 1 K 0 F 0 C 1 G 0 D 3 H 0 I 0</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/c/">C++</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">哈夫曼树</category>
+      
+      
+      <comments>https://blog.sorasky.in/tree-forest.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>输出哈夫曼树各叶子结点的编码</title>
+      <link>https://blog.sorasky.in/huffman-codes.html</link>
+      <guid>https://blog.sorasky.in/huffman-codes.html</guid>
+      <pubDate>Thu, 10 Jun 2021 13:11:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;pre&gt;&lt;code class=&quot;cpp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+struct Node{
+    int data;
+    Node *lchild, *rchild;
+};
+bool compare(Node *p, Node *q){
+    return p-&amp;gt;data &amp;gt; q-&amp;gt;data;
+}
+void setup(Node *arr[], int count){
+    Node *p;
+    while(count &amp;gt; 1){
+        sort(arr, arr + count, compare);
+        p = new Node;
+        p-&amp;gt;data = arr[count - 1]-&amp;gt;data + arr[count - 2]-&amp;gt;data;
+        p-&amp;gt;lchild = arr[count - 1];
+        p-&amp;gt;rchild = arr[count - 2];
+        arr[(count--) - 2] = p;
+    }
+}
+void show(Node *head, int n){
+    if(head-&amp;gt;lchild == NULL &amp;amp;&amp;amp; head-&amp;gt;rchild == NULL){
+        cout &amp;lt;&amp;lt; head-&amp;gt;data &amp;lt;&amp;lt; endl;
+    }
+    if(head-&amp;gt;lchild != NULL) show(head-&amp;gt;lchild, n + 1);
+    if(head-&amp;gt;rchild != NULL) show(head-&amp;gt;rchild, n + 1);
+}
+int main(){
+    int numbers[10] = {2,3,5,7,9,10,12,15,18,20};
+    Node *arr[10];
+    for(int i = 0; i &amp;lt; 10; i++){
+        arr[i] = new Node;
+        arr[i]-&amp;gt;data = numbers[i];
+        arr[i]-&amp;gt;lchild = NULL;
+        arr[i]-&amp;gt;rchild = NULL;
+    }
+    setup(arr, 10);
+    show(arr[0], 1);
+    return</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/c/">C++</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">哈夫曼树</category>
+      
+      
+      <comments>https://blog.sorasky.in/huffman-codes.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>自编译 linux下pycryptodome和lxml x86-64二进制文件</title>
+      <link>https://blog.sorasky.in/pycrypto-lxml.html</link>
+      <guid>https://blog.sorasky.in/pycrypto-lxml.html</guid>
+      <pubDate>Sat, 05 Jun 2021 02:21:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;网上的版本都非常旧了，这里的pycryptodome版本为3.10.1，支持用于腾讯云函数的层。&lt;br&gt;pycryptodome: &lt;a href=&quot;https://miit.lanzoui.com/iy74ept4ide&quot;&gt;https://miit.lanzoui.com/iy74ept4ide&lt;/a&gt;&lt;br&gt;lxml: &lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%87%BD%E6%95%B0/">腾讯云函数</category>
+      
+      <category domain="https://blog.sorasky.in/tags/serverless/">serverless</category>
+      
+      <category domain="https://blog.sorasky.in/tags/pycryptodome/">pycryptodome</category>
+      
+      <category domain="https://blog.sorasky.in/tags/lxml/">lxml</category>
+      
+      
+      <comments>https://blog.sorasky.in/pycrypto-lxml.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>inSoraSky Telegram贴纸下载API</title>
+      <link>https://blog.sorasky.in/telegram-sticker-api.html</link>
+      <guid>https://blog.sorasky.in/telegram-sticker-api.html</guid>
+      <pubDate>Fri, 28 May 2021 16:53:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;如果需要&lt;code&gt;https&lt;/code&gt;，请自行更改协议前缀。&lt;br&gt;1.获取贴纸包信息API：&lt;br&gt;&lt;code&gt;http://service.sorasky.in/Stick/get_sticker_set?name=（贴纸包名称）&lt;/code&gt;&lt;br&gt;2.下载贴纸API：&lt;br&gt;&lt;code&gt;http://service.sorasky.in/Stick/download?id=（贴纸的file_id）&lt;/code&gt;&lt;br&gt;如果贴纸存在，则返回webp格式的贴纸图片。&lt;/p&gt;
+</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/telegram/">Telegram</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E8%B4%B4%E7%BA%B8/">贴纸</category>
+      
+      
+      <comments>https://blog.sorasky.in/telegram-sticker-api.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>xposed模块检测自身是否启用(kotlin)</title>
+      <link>https://blog.sorasky.in/xposed-module-is-enabled.html</link>
+      <guid>https://blog.sorasky.in/xposed-module-is-enabled.html</guid>
+      <pubDate>Fri, 28 May 2021 16:10:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;作为一个xposed模块，检测自身是否启用显然是最基础的功能了。本教程使用kotlin，Java应该差不多。&lt;br&gt;原理是Hook自身，修改状态语以提示用户。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.在准备显示启用状态的Activity中定义函数&lt;code&gt;isEnabled&lt;/code&gt;：&lt;pre&gt;&lt;code class=&quot;kotlin&quot;&gt; fun isEnabled(): String{
+     return &quot;模块未启用！&quot;
+ }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;2.创建窗口时将状态文本控件的值设为&lt;code&gt;isEnabled&lt;/code&gt;函数的返回值：&lt;pre&gt;&lt;code class=&quot;kotlin&quot;&gt; // 假设已经定义名为status的TextView控件并创建ViewBinding
+ binding.status.text = isEnabled()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;3.在hook函数中篡改isEnabled函数的返回值&lt;pre&gt;&lt;code class=&quot;kotlin&quot;&gt;public class Hook: IXposedHookLoadPackage{
+ override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?){
+     when(lpparam?.packageName){
+         &quot;com.example.xposed.module&quot; -&amp;gt; { // 将这里的包名更改为自己的xposed模块
+             val clazz = lpparam.classLoader?.loadClass(&quot;com.example.xposed.module.MainActivity&quot;) // 将这里的Activity名称更改为显示状态的Activity名称
+             XposedHelpers.findAndHookMethod(clazz, &quot;isEnabled&quot;, object : XC_MethodHook() {
+                 override fun beforeHookedMethod(param: MethodHookParam?) {
+                     super.beforeHookedMethod(param)
+                 }
+                 override fun afterHookedMethod(param: MethodHookParam?) {
+                     param?.result = &quot;模块已启用！&quot;
+                 }
+             })
+         }
+     }
+ }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;效果图&quot;&gt;&lt;a href=&quot;#效果图&quot; class=&quot;headerlink&quot; title=&quot;效果图&quot;&gt;&lt;/a&gt;效果图&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;未启用时：&lt;br&gt;&lt;img src=&quot;/images/131232705.png&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;已启用时：&lt;br&gt;&lt;img</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/android/">Android</category>
+      
+      <category domain="https://blog.sorasky.in/tags/kotlin/">Kotlin</category>
+      
+      <category domain="https://blog.sorasky.in/tags/xposed/">Xposed</category>
+      
+      
+      <comments>https://blog.sorasky.in/xposed-module-is-enabled.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>自定义mitmproxy使用的证书颁发者名称</title>
+      <link>https://blog.sorasky.in/custom-mitm-ca-authority.html</link>
+      <guid>https://blog.sorasky.in/custom-mitm-ca-authority.html</guid>
+      <pubDate>Sat, 17 Apr 2021 15:37:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;最近做了一个需要使用代理的Python小工具，看到证书详情里的&lt;code&gt;mitmproxy&lt;/code&gt;强迫症犯了，于是把它改了。&lt;br&gt;1.引用所需的库&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;from mitmproxy.certs import CertStore
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2.当前目录下的证书目录&lt;code&gt;./certs&lt;/code&gt;不存在时，自动创建证书&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;if not os.path.exists(&#39;./certs&#39;):
+    CertStore.create_store(
+        path=os.path.abspath(&#39;./certs&#39;),
+        basename=&#39;mitmproxy&#39;,
+        key_size=2048,
+        organization=&#39;Your_Organization_Name&#39;,
+        cn=&#39;Your_CN_Name&#39;
+    )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;3.启动mitmproxy时将当前证书设为HTTPS证书：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;from mitmdump import DumpMaster, Options
+options = Options(
+    scripts=__file__,
+    confdir=os.path.abspath(&#39;./certs&#39;)
+)
+dm =</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/python/">Python</category>
+      
+      <category domain="https://blog.sorasky.in/tags/mitmproxy/">mitmproxy</category>
+      
+      
+      <comments>https://blog.sorasky.in/custom-mitm-ca-authority.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>用C++写一个栈并判断括号是否配对</title>
+      <link>https://blog.sorasky.in/cpp-stack.html</link>
+      <guid>https://blog.sorasky.in/cpp-stack.html</guid>
+      <pubDate>Wed, 31 Mar 2021 10:39:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;数据结构作业&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;cpp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+enum status_code {success, overflow, underflow};
+template &amp;lt;class Type, int max&amp;gt;
+class Stack{
+    public:
+        Stack();
+        bool is_full();
+        bool is_empty();
+        status_code push(Type num);
+        status_code pop();
+        status_code get_top(Type &amp;amp;num);
+        void show_all();
+    private:
+        int count;
+        int data[max];
+};
+template &amp;lt;class Type, int max&amp;gt;
+Stack&amp;lt;Type, max&amp;gt;::Stack(){
+    count = -1;
+}
+template &amp;lt;class Type, int max&amp;gt;
+bool Stack&amp;lt;Type, max&amp;gt;::is_full(){
+    return (count == max - 1);
+}
+template &amp;lt;class Type, int max&amp;gt;
+bool Stack&amp;lt;Type, max&amp;gt;::is_empty(){
+    return (count == -1);
+}
+template &amp;lt;class Type, int max&amp;gt;
+status_code Stack&amp;lt;Type, max&amp;gt;::push(Type num){
+    if(is_full()) return overflow;
+    data[++count] = num;
+    return success;
+}
+template &amp;lt;class Type, int max&amp;gt;
+status_code Stack&amp;lt;Type, max&amp;gt;::pop(){
+    if(is_empty()) return underflow;
+    --count;
+    return success;
+}
+template &amp;lt;class Type, int max&amp;gt;
+status_code Stack&amp;lt;Type, max&amp;gt;::get_top(Type &amp;amp;num){
+    if(is_empty()) return underflow;
+    num = data[count];
+    return success;
+}
+template &amp;lt;class Type, int max&amp;gt;
+void Stack&amp;lt;Type, max&amp;gt;::show_all(){
+    for(int i = 0; i &amp;lt;= count; ++i){
+        cout &amp;lt;&amp;lt; data[i] &amp;lt;&amp;lt; &quot; &quot;;
+    }
+    cout &amp;lt;&amp;lt; &quot;\n&quot;;
+}
+
+
+int main(){
+    Stack&amp;lt;char, 100&amp;gt; stack;
+    string data;
+    char current;
+    cin &amp;gt;&amp;gt; data;
+    for(int i = 0; i &amp;lt; data.length(); ++i){
+        if(stack.get_top(current) == underflow &amp;amp;&amp;amp; i) break;
+        switch(data[i]){
+            case &#39;)&#39;:
+                if(current == &#39;(&#39;) stack.pop(); break;
+            case &#39;]&#39;:
+                if(current == &#39;[&#39;) stack.pop(); break;
+            case &#39;}&#39;:
+                if(current == &#39;{&#39;) stack.pop(); break;
+            default:
+                stack.push(data[i]);
+        }
+    }
+    cout &amp;lt;&amp;lt; (stack.is_empty() ? &quot;括号配对&quot; : &quot;括号不配对&quot;);
+    return</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/c/">C++</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      
+      <comments>https://blog.sorasky.in/cpp-stack.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>mirai-console-loader在Linux下的使用</title>
+      <link>https://blog.sorasky.in/mirai-console-linux.html</link>
+      <guid>https://blog.sorasky.in/mirai-console-linux.html</guid>
+      <pubDate>Sun, 07 Mar 2021 15:32:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;本人环境：&lt;code&gt;CentOS 7 + 自带的JRE1.8.0&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-安装JDK11&quot;&gt;&lt;a href=&quot;#1-安装JDK11&quot; class=&quot;headerlink&quot; title=&quot;1.安装JDK11&quot;&gt;&lt;/a&gt;1.安装&lt;code&gt;JDK11&lt;/code&gt;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;yum -y install java-11-openjdk-*
+alternatives --config java
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之后选择JDK11即可。&lt;/p&gt;
+&lt;h2 id=&quot;2-安装mirai-console-loader&quot;&gt;&lt;a href=&quot;#2-安装mirai-console-loader&quot; class=&quot;headerlink&quot; title=&quot;2.安装mirai-console-loader&quot;&gt;&lt;/a&gt;2.安装mirai-console-loader&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;从&lt;a href=&quot;https://github.com/iTXTech/mirai-console-loader/releases&quot;&gt;releases&lt;/a&gt;获取最新版的&lt;code&gt;mirai-console-loader&lt;/code&gt;后，将其解压在你要安装&lt;code&gt;mirai-console-loader&lt;/code&gt;的目录下；&lt;/li&gt;
+&lt;li&gt;编辑&lt;code&gt;./mcl&lt;/code&gt;，在第3行的&lt;code&gt;-jar mcl.jar $*&lt;/code&gt;前加入&lt;code&gt;-Dmirai.slider.captcha.supported&lt;/code&gt;，使之变成&lt;code&gt;$JAVA_BINARY -Dmirai.slider.captcha.supported -jar mcl.jar $*&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;给&lt;code&gt;./mcl&lt;/code&gt;加上可执行权限：&lt;code&gt;chmod +x ./mcl&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;./mcl&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;/login &amp;lt;机器人QQ号&amp;gt; &amp;lt;机器人QQ密码&amp;gt;&lt;/code&gt;回车；&lt;/li&gt;
+&lt;li&gt;如果要求滑动验证，请打开浏览器隐私窗口，调出开发者工具（F12），通过开发者工具设置为安卓UA；&lt;/li&gt;
+&lt;li&gt;打开命令行中获得的地址；&lt;/li&gt;
+&lt;li&gt;打开浏览器&lt;code&gt;console&lt;/code&gt;，将这里的所有内容粘贴至控制台中回车，若返回true则为成功；&lt;/li&gt;
+&lt;li&gt;完成滑动验证，将弹出的密钥粘贴至命令行回车；&lt;/li&gt;
+&lt;li&gt;如果要求设备锁验证，请按照命令行提示，将命令行中的地址复制到浏览器，按照页面要求完成设备锁验证后在命令行回车；&lt;/li&gt;
+&lt;li&gt;若命令行提示&lt;code&gt;Login successful&lt;/code&gt;则登录成功&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果需要后台运行，执行&lt;code&gt;./mcl</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/mirai/">Mirai</category>
+      
+      
+      <comments>https://blog.sorasky.in/mirai-console-linux.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>kotlin 十六进制文本(String)和字节集(ByteArray)互转</title>
+      <link>https://blog.sorasky.in/kt-str-bytearray.html</link>
+      <guid>https://blog.sorasky.in/kt-str-bytearray.html</guid>
+      <pubDate>Tue, 23 Feb 2021 14:41:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;pre&gt;&lt;code class=&quot;kotlin&quot;&gt;object HexUtils {
+    fun hexStringToBytes(hexString: String?): ByteArray? {
+        @Suppress(&quot;NAME_SHADOWING&quot;)
+        var hexString = hexString
+        if (hexString == null || hexString == &quot;&quot;) {
+            return null
+        }
+        hexString = hexString.toUpperCase()
+        val length = hexString.length / 2
+        val hexChars = hexString.toCharArray()
+        val data = ByteArray(length)
+        for (i in 0 until length) {
+            val pos = i * 2
+            data[i] = (charToByte(hexChars[pos]).toInt() shl 4 or charToByte(hexChars[pos + 1]).toInt()).toByte()
+        }
+        return data
+    }
+
+    fun bytesToHexString(src: ByteArray?): String? {
+        val stringBuilder = StringBuilder(&quot;&quot;)
+        if (src == null || src.isEmpty()) {
+            return null
+        }
+        for (element in src) {
+            val v = element.toInt() and 0xFF
+            val hv = Integer.toHexString(v)
+            if (hv.length &amp;lt; 2) {
+                stringBuilder.append(0)
+            }
+            stringBuilder.append(hv)
+        }
+        return stringBuilder.toString()
+    }
+
+    private fun charToByte(c: Char): Byte {
+        return &quot;0123456789ABCDEF&quot;.indexOf(c).toByte()
+   </description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/android/">Android</category>
+      
+      <category domain="https://blog.sorasky.in/tags/kotlin/">Kotlin</category>
+      
+      
+      <comments>https://blog.sorasky.in/kt-str-bytearray.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>记最近的两个Windows致死路径</title>
+      <link>https://blog.sorasky.in/win-err-path.html</link>
+      <guid>https://blog.sorasky.in/win-err-path.html</guid>
+      <pubDate>Thu, 21 Jan 2021 11:14:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;pre&gt;&lt;code&gt;    \\.\globalroot\device\condrv\kernelconnect
+
+    cd</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/windows/">Windows</category>
+      
+      <category domain="https://blog.sorasky.in/tags/%E8%93%9D%E5%B1%8F/">蓝屏</category>
+      
+      
+      <comments>https://blog.sorasky.in/win-err-path.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>ThinkPHP6.0找不到控制器时展示404页面而非“方法不存在”错误页</title>
+      <link>https://blog.sorasky.in/tp6-404-page.html</link>
+      <guid>https://blog.sorasky.in/tp6-404-page.html</guid>
+      <pubDate>Sun, 10 Jan 2021 04:00:22 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;默认情况下，TP6当开启调试模式时，试图访问一个不存在的控制器时会返回以下页面：&lt;br&gt;&lt;img src=&quot;/images/2611135732.png&quot;&gt;&lt;br&gt;如果你没有打开调试模式就长这样：&lt;br&gt;&lt;img src=&quot;/images/3972674340.png&quot;&gt;&lt;br&gt;一般情况下，“找不到控制器”对于用户来说就是404找不到页面，并且在调试模式没有关闭时容易泄露服务器信息。&lt;br&gt;##1.http_exception_template（仅适用于部署模式）&lt;br&gt;ThinkPHP自带了http_exception_template配置用于设置抛出HTTP错误时使用的模板文件。&lt;br&gt;优点：配置简单；缺点：仅适用于部署模式、各个错误码需单独设置。&lt;br&gt;在app.php内添加以下内容：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&#39;http_exception_template&#39;    =&amp;gt;  [
+    // 404
+    404 =&amp;gt; \think\facade\App::getRootPath().&#39;404.html&#39;, 
+    //getRootPath为获取项目根目录，可根据实际情况修改
+    // 其他错误码
+    401 =&amp;gt; \think\facade\App::getRootPath().&#39;401.html&#39;,
+]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;##2.ExceptionHandle&lt;br&gt;ExceptionHandle.php中预置了异常处理类，只需捕获HttpException异常即可返回各个页面的错误码。&lt;br&gt;在ExceptionHandle.php自带的&lt;code&gt;return parent::render($request, $e);&lt;/code&gt;下方添加以下内容：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if($e instanceof HttpException){
+    return response(&quot;网页错误：&quot;.$e-&amp;gt;getStatusCode(),</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://blog.sorasky.in/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾</category>
+      
+      
+      <category domain="https://blog.sorasky.in/tags/thinkphp/">ThinkPHP</category>
+      
+      <category domain="https://blog.sorasky.in/tags/404/">404</category>
+      
+      
+      <comments>https://blog.sorasky.in/tp6-404-page.html#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>

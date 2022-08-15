@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/bollnh/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://insorasky-blog.disqus.com"/>
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            USTC Hackergame 2021 Writeup | 
+        
+        inSoraSky BLOG
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://1.1.1.1/favicon.ico">
+    <link rel="icon" href="https://1.1.1.1/favicon.ico">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="inSoraSky BLOG">
+    <meta name="keywords" content="Sora,inSoraSky,inSoraSky BLOG,信息安全,HackerGame,Writeup">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(https://tva4.sinaimg.cn/large/b4b85294ly1gmeezpsu0nj21020pihdv.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="inSoraSky BLOG">
+    <meta name="msapplication-starturl" content="https://blog.sorasky.in/hg2021.html">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="inSoraSky BLOG">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://1.1.1.1/favicon.ico">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://blog.sorasky.in/hg2021.html">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="USTC Hackergame 2021 Writeup | inSoraSky BLOG">
+    <meta property="og:image" content="https://1.1.1.1/favicon.ico">
+    <meta property="og:description" content="inSoraSky BLOG">
+    <meta property="og:article:tag" content="信息安全"> <meta property="og:article:tag" content="HackerGame"> <meta property="og:article:tag" content="Writeup"> 
+
+    
+        <meta property="article:published_time" content="Sat Oct 30 2021 21:40:22 GMT+0800">
+        <meta property="article:modified_time" content="Tue May 10 2022 02:01:12 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://blog.sorasky.in/hg2021.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://blog.sorasky.in/hg2021.html",
+    "headline": "USTC Hackergame 2021 Writeup",
+    "datePublished": "Sat Oct 30 2021 21:40:22 GMT+0800",
+    "dateModified": "Tue May 10 2022 02:01:12 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Sora",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/images/avatar.png"
+        },
+        "description": "You R in Sora's New Forest"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "inSoraSky BLOG",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://1.1.1.1/favicon.ico"
+        }
+    },
+    "keywords": ",信息安全,HackerGame,WriteupSora,inSoraSky,inSoraSky BLOG",
+    "description": "inSoraSky BLOG",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/images/3117883759.png)">
+    
+            <p class="article-headline-p">
+                USTC Hackergame 2021 Writeup
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/images/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Sora</strong>
+        <span>10月 30, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/hackergame/" rel="tag">HackerGame</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/writeup/" rel="tag">Writeup</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" rel="tag">信息安全</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=USTC Hackergame 2021 Writeup&url=https://blog.sorasky.in/hg2021.html&via=Sora" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://blog.sorasky.in/hg2021.html&text=USTC Hackergame 2021 Writeup" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>今年是本菜鸡第一次参加CTF，本人学的不是信息安全专业，因此对大多数CTF没什么兴趣。<br>参加本次<a target="_blank" rel="noopener" href="http://hack.lug.ustc.edu.cn/">Hackergame</a>是因为经常水<a target="_blank" rel="noopener" href="http://lug.ustc.edu.cn/">USTCLUG</a>的群，挺喜欢USTCLUG的氛围，所以来随便<del>卷一卷</del>（不是<br><img src="/images/3117883759.png"><br><del>我记得我最高的时候是84名，深深地体会到了卷王的厉害</del><br>对于我这种信息安全外行来说，这个成绩可能还算不错的样子，就是有一道题差点做出来<del>没错就差最后一步了</del>，如果我做出来的话，完全可以上榜单的……没事，反正第一次不熟练是正常的，反正分数和第100名是一样的，不用后悔，明年再战<br>不用后悔对吧<br>不用后悔的<br>……<br><strong><del>呜啊哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇</del></strong></p>
+<h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><p>签到题没什么好说的，Unix时间戳贴到URL里rua一把就完事了。</p>
+<h1 id="进制十六——参上"><a href="#进制十六——参上" class="headerlink" title="进制十六——参上"></a>进制十六——参上</h1><p>遮了明文却没遮住16进制部分，用WinHex(Windows)或者UltraEdit(Windows/macOS)<del>甚至Python/JavaScript</del>输入相应的16进制部分即得到结果。<br><img src="/images/3592711830.png"></p>
+<h1 id="去吧！追寻自由的电波"><a href="#去吧！追寻自由的电波" class="headerlink" title="去吧！追寻自由的电波"></a>去吧！追寻自由的电波</h1><p>无线电是吧，Google“无线电 区分字符串中读音相近的字母”找到单词表。<br><img src="/images/1960420648.png"><br>当时这道题难了我好久，用macOS IINA降速失真严重，用Firefox降速总有听不清的单词，最后忍着安装用不到的软件的悲痛上了上次用还是高一时的Adobe Audition，降速+降调<br>这次算是清晰了，不过第5个单词和最后一个单词听了半天，怀疑这个词真的在单词表里面吗？<br>干脆掏出Google翻译语音识别这个单词——还真TM不在单词表里面@(huaji_han)<br><img src="/images/1502879478.jpg"><br><del>对不起，是我英语太烂了</del></p>
+<h1 id="猫咪问答-Pro-Max"><a href="#猫咪问答-Pro-Max" class="headerlink" title="猫咪问答 Pro Max"></a>猫咪问答 Pro Max</h1><p><del>紧跟时事是吧</del><br><del>不知道你们这个猫咪问答炼丹性能能不能和M1 Max有得一拼</del></p>
+<blockquote>
+<ol>
+<li>2017 年，中科大信息安全俱乐部（SEC@USTC）并入中科大 Linux 用户协会（USTCLUG）。目前，信息安全俱乐部的域名（sec.ustc.edu.cn）已经无法访问，但你能找到信息安全俱乐部的社团章程在哪一天的会员代表大会上通过的吗？</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>提示：输入格式为 YYYYMMDD，如 20211023。请不要回答 “能” 或者 “不能”。</p>
+</blockquote>
+<p><code>sec.ustc.edu.cn</code>已经挂了，搜索<code>site:lug.ustc.edu.cn</code>可以找到LUG官网的存档，但是所有的链接已经被替换为<code>archive.org</code>的链接。<br>点击首页，点击<code>信息安全俱乐部社团章程</code>，找到日期。<br><img src="/images/38018116.png"></p>
+<blockquote>
+<ol start="2">
+<li>中国科学技术大学 Linux 用户协会在近五年多少次被评为校五星级社团？</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>提示：是一个非负整数。</p>
+</blockquote>
+<p>点击LUG官网——了解更多，找到可能是答案的内容：</p>
+<p><strong>为了表彰其出色表现，协会于 2011 年 5 月被评为中国科学技术大学优秀学生社团，于 2012 年 5 月、2013 年 5 月及 2014 年 5 月分别被评为中国科学技术大学四星级学生社团，并于 2015 年 5 月、2017 年 7 月、2018 年 9 月、2019 年 8 月及 2020 年 9 月被评为中国科学技术大学五星级学生社团。</strong></p>
+<p>今年是2021年，填了4，答案错误。我当时怀疑是后面的答案出了问题，试了好几次，最后随便试了一下5，过了；后来我听说USTCLUG在2021年也被评选为五星社团了。</p>
+<blockquote>
+<ol start="3">
+<li>中国科学技术大学 Linux 用户协会位于西区图书馆的活动室门口的牌子上“LUG @ USTC”下方的小字是？</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>提示：正确答案的长度为 27，注意大小写。</p>
+</blockquote>
+<p>考不上科大的菜逼当然是找图了。Google一下USTCLUG找到图：<br><img src="/images/2784090736.png"><br><img src="/images/1457713995.png"></p>
+<blockquote>
+<ol start="4">
+<li>在 SIGBOVIK 2021 的一篇关于二进制 Newcomb-Benford 定律的论文中，作者一共展示了多少个数据集对其理论结果进行验证？</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>提示：是一个非负整数。</p>
+</blockquote>
+<p>Google搜索<code>Newcomb-Benford SIGBOVIK 2021</code>找到<a target="_blank" rel="noopener" href="http://sigbovik.org/2021/proceedings.pdf">论文合集</a>，搜索<code>Newcomb-Benford</code>找到相应的论文。<br><img src="/images/943225485.png"><br>可见共有14个图表，第一个图表为作者引用之前的结果，并非用于对其理论结果进行验证，故为13。</p>
+<blockquote>
+<ol start="5">
+<li>不严格遵循协议规范的操作着实令人生厌，好在 IETF 于 2021 年成立了 Protocol Police 以监督并惩戒所有违背 RFC 文档的行为个体。假如你发现了某位同学可能违反了协议规范，根据 Protocol Police 相关文档中规定的举报方法，你应该将你的举报信发往何处？</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>提示：正确答案的长度为 9。</p>
+</blockquote>
+<p>Google一下<code>Protocol Police</code>找到<a target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc8962.html"><code>RFC 8962 Establishing the Protocol Police</code></a>，阅读后找到答案：</p>
+<blockquote>
+<ol start="6">
+<li>Reporting Offenses<br>Send all your reports of possible violations and all tips about wrongdoing to /dev/null. The Protocol Police are listening and will take care of it.</li>
+</ol>
+</blockquote>
+<h1 id="卖瓜"><a href="#卖瓜" class="headerlink" title="卖瓜"></a>卖瓜</h1><blockquote>
+<p>有一个人前来买瓜。你拥有以下物品：</p>
+</blockquote>
+<blockquote>
+<p>一个大棚，里面有许多 6 斤一个的瓜和许多 9 斤一个的瓜。 </p>
+</blockquote>
+<blockquote>
+<p>一个电子秤（最开始是空的）；</p>
+</blockquote>
+<blockquote>
+<p>你的任务是在电子秤上称出刚好 20 斤的瓜。</p>
+</blockquote>
+<p>正常肯定是不行的，尝试输个n个9成功使其溢出：<br><img src="/images/2495541489.png"><br>先给它加到比较小的数：<br><img src="/images/2346648780.png"><br>然后随便排列组合一下，给它加到20：<br><img src="/images/2843674806.png"></p>
+<h1 id="透明的文件"><a href="#透明的文件" class="headerlink" title="透明的文件"></a>透明的文件</h1><blockquote>
+<p>一个透明的文件，用于在终端中展示一个五颜六色的 flag。 可能是在 cmd.exe</p>
+</blockquote>
+<blockquote>
+<p>等劣质终端中被长期使用的原因，这个文件失去了一些重要成分，变成了一堆乱码，也不会再显示出 flag 了。</p>
+</blockquote>
+<blockquote>
+<p>注意：flag内部的字符全部为小写字母。</p>
+</blockquote>
+<p>这个转义总感觉很眼熟，Google搜索<code>[39m 转义</code>知道此乃<code>ANSI转义序列</code>，文件里的一堆空格是它输出的字符。说了cmd不能识别这种转义，反正我用的macOS（不是Mac），不慌。<br>将<code>[</code>替换为<code>\033[</code>，因为空格看不清所以替换为方块<code>█</code>，输出即可。<br>记得最后暂停一下，否则会被清除。</p>
+<pre><code class="python">file = './transparent-2.txt'
+with open(file, 'r') as f:
+    data = f.read()
+data2 = data.replace('[', '\033[')
+data2 = data2.replace(' ', '█')
+print(data2)
+input()
+</code></pre>
+<p><img src="/images/476816357.png"></p>
+<h1 id="旅行照片"><a href="#旅行照片" class="headerlink" title="旅行照片"></a>旅行照片</h1><p>和猫咪问答一样，又是社工题。<br>看到KFC，Google一下<code>KFC 海边</code>搜图，找到秦皇岛新澳海底世界KFC。<br><del>海底世界也不搞大点，我问了一个秦皇岛的同学，他说没去过</del><br><del>听说有人打电话给这家KFC了，甚至还有人打给EXIF信息上的电话，结果接电话的是科大保卫处</del><br>知道了具体的KFC就很容易找到电话号码了，至于旁边的几个字稍微翻一翻也可以找到，4、5题搞定。<br>至于前三道选择题，我用我毕生所学的初中地理知识无解，反正是静态资源+base64文件名，暴力解决。</p>
+<pre><code class="python">import requests
+import base64
+tpl = '1={0}&amp;2={1}&amp;3={2}&amp;4=0335-7168800&amp;5=%E6%B5%B7%E8%B1%9A%E9%A6%86'
+url = 'http://202.38.93.111:10055/%s.txt'
+for c1 in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']:
+    for c2 in ['a', 'b', 'c', 'd', 'e']:
+        for n in range(8, 18):
+            data = tpl.format(c1, c2, n)
+            req = requests.get(url % base64.b64encode(data.encode()).decode())
+            print('%s %s %s %s' % (c1, c2, n, req.status_code))
+            if req.status_code != 404:
+                print(req.text)
+</code></pre>
+<h1 id="FLAG-助力大红包"><a href="#FLAG-助力大红包" class="headerlink" title="FLAG 助力大红包"></a>FLAG 助力大红包</h1><p>题目要求所有的/8段IP都轮一遍，这按正常方法显然是不行的，就算你在科大校内可以拿到10.0.0.0/8，那无效地址0.0.0.0/8，环回地址127.0.0.0/8，广播地址255.0.0.0/8怎么办对吧<br>于是上<code>X-Forward-For</code>协议头伪造IP地址，成功过关，<del>感谢一年前某网站试图屏蔽我的爬虫让我知道了这个HTTP头</del></p>
+<pre><code class="python">import requests
+for i in range(0, 255):
+    time.sleep(1)
+    data = requests.post(
+        url='http://202.38.93.111:10888/invite/3730fa86-8117-4a49-ae4d-7d52fca5088c',
+        headers={'Content-Type': 'application/x-www-form-urlencoded', 'X-Forwarded-For': f'{i}.8.8.8'},
+        data=f'ip={i}.8.8.8'
+    ).text
+    print(data)
+</code></pre>
+<h1 id="Amnesia-轻度失忆"><a href="#Amnesia-轻度失忆" class="headerlink" title="Amnesia 轻度失忆"></a>Amnesia 轻度失忆</h1><p><del>重度失忆不会，没学过汇编</del><br>编译后 ELF 文件的 .data 和 .rodata 段会被清零，那我们不从这里拿字符串不就行了</p>
+<pre><code class="c++">#include &lt;stdio.h&gt;
+int main(){
+    putchar('H');
+    putchar('e');
+    putchar('l');
+    putchar('l');
+    putchar('o');
+    putchar(',');
+    putchar(' ');
+    putchar('W');
+    putchar('o');
+    putchar('r');
+    putchar('l');
+    putchar('d');
+    putchar('!');
+}
+</code></pre>
+<h1 id="图之上的信息"><a href="#图之上的信息" class="headerlink" title="图之上的信息"></a>图之上的信息</h1><p>GraphQL？我以前还真没有听说过这个技术栈，据说是把接口当数据库用，同时相对于SQL更好进行权限处理。<br>搜索<code>GraphQL 渗透</code>，找到<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/gp2jGrLPllsh5xn7vn9BwQ">渗透测试之玩转graphQL</a>，得知GraphQL有内省查询问题。<br>对页面进行抓包，可以看到笔记部分使用graphql作为接口获取数据<br><img src="/images/2489758709.png"><br>构造内省查询包，取得用户表结构：<br><img src="/images/4103678514.png"><br><img src="/images/4077881976.png"><br>可知邮箱位于User表下的privateEmail字段，查询获得flag：<br><img src="/images/2195820482.png"><br><img src="/images/867534780.png"></p>
+<h1 id="加密的U盘"><a href="#加密的U盘" class="headerlink" title="加密的U盘"></a>加密的U盘</h1><p>LUKS的原理是使用masterkey加密内容，之后再使用passphrase加密masterkey，而修改passphrase并不会修改masterkey。将day2.img的header替换为day1.img的header，就可以用day1.img的passphrase解密day2.img。操作环境为Ubuntu 20.04.5 LTS。</p>
+<pre><code class="shell">sudo apt install -y cryptsetup-bin
+sudo losetup -f # 获取空闲loop环回虚拟设备，假设为/dev/loop1
+sudo losetup -P loop1 ./day1.img # 挂载day1.img到loop1
+sudo losetup -f # 获取空闲loop环回虚拟设备，假设为/dev/loop2
+sudo losetup -P loop2 ./day2.img # 挂载day2.img到loop2
+sudo cryptsetup luksHeaderBackup /dev/loop1p1 --header-backup-file ./header1.bin # 备份day1.img的header
+sudo cryptsetup luksHeaderRestore /dev/loop2p1 --header-backup-file ./header1.bin # 将header还原到day2.img
+sudo cryptsetup open /dev/loop2p1 day2 # 解密挂载day2.img到day2 mapper，需要输入密码
+# 因为已经恢复为day1的header，输入day1的密码即可
+mkdir day2 # 建个目录供挂载
+mount /dev/mapper/day2 ./day2 # 挂载至day2文件夹
+cat ./day2/flag.txt # 获取flag
+</code></pre>
+<h1 id="Micro-World"><a href="#Micro-World" class="headerlink" title="Micro World"></a>Micro World</h1><p>** 注意：这里的解法不是完整的解法。** </p>
+<p>没错，我开头说的差点做出来的题就是这一题！明明已经把源码逆向出来了，然而终究还是被出题人预判了……经验不足，明年再……**<del>呜哇啊啊啊啊啊啊啊啊啊啊啊啊啊我的300分啊啊啊有了这300分不就进前80了啊啊啊</del>**<br>本人exe逆向零基础，试图用IDA Pro逆向失败，索性摆烂，掏出<del>超清一亿像素60fps丝滑录像照亮你的美</del>小米10Pro准备录下开头美好的flag。<br>flag没录到<del>开头那特么是个什么玩意</del>，但是当我仔细翻看录像时，发现了新大陆：<br><img src="/images/276395211.jpg"><br>pygame是吧？那八成用的pyinstaller打包，上<a target="_blank" rel="noopener" href="https://github.com/extremecoders-re/pyinstxtractor">pyinstxtractor</a>，得到2.pyc，然后网上随便找个pyc反编译，得到python源码。<br>然后欣喜地运行，结果初始画面和手机录到的并没有什么区别，改了配色还是没看出什么玄机<br><img src="/images/3673461867.png"><br>试了半天找不出flag来……<br>根据<a target="_blank" rel="noopener" href="https://github.com/USTC-Hackergame/hackergame2021-writeups/blob/master/official/Micro%20World/README.md">官方解法</a>，将vx和vy置相反数可以使粒子反向运动获得flag。~~~我为什么没想到<strong>啊啊啊</strong>我还是太嫩了~~~</p>
+<h1 id="马赛克"><a href="#马赛克" class="headerlink" title="马赛克"></a>马赛克</h1><p>下载生成马赛克的源码，看到马赛克是通过将块内的所有像素取均值得到的。通过最外层露出来的不完整像素可解得马赛克块的部分像素；并且马赛克块内像素的均值已知，接下来不断地去碰撞即可。我的代码没有对可能存在的多种情况进行处理，而是直接加入队尾后跳过；理论上可以通过递归的方式获得完整的二维码，但是反正二维码一般有容错机制，商业二维码扫描库也支持自动纠错，扫得出来就懒得折腾了。最终剩余154个马赛克块未解开，微信扫码获得flag。</p>
+<pre><code class="python">import numpy as np
+from PIL import Image
+import queue
+
+X, Y = 103, 137 # 纵向x，横向y
+N = 20 # 马赛克块数，NxN
+BOX_SIZE = 23 # 马赛克块边长
+PIXEL_SIZE = 11 # 二维码像素边长
+
+# 打开图片
+img = Image.open('./pixelated_qrcode.bmp')
+arr = np.asarray(img)
+
+def get_color(x, y):
+    '''
+    根据已有颜色判断该方格原有颜色
+    若为黑色0返回1，白色255返回0，未知返回-1
+    '''
+    pixel_x = int(x / PIXEL_SIZE) * PIXEL_SIZE
+    pixel_y = int(y / PIXEL_SIZE) * PIXEL_SIZE
+    pixels = arr[pixel_x:pixel_x+PIXEL_SIZE, pixel_y:pixel_y+PIXEL_SIZE]
+    for _y in pixels:
+        for color in _y:
+            if color == 0:
+                return 1
+            elif color == 255:
+                return 0
+    return -1
+
+def divide_by_pixels(x, y) -&gt; tuple[int, int, int, int]:
+    '''
+    根据二维码像素切割马赛克块
+    '''
+    if x &lt; X or y &lt; Y:
+        return False
+    block_x = int((x - X) / BOX_SIZE) * BOX_SIZE + X # 马赛克块位置
+    block_y = int((y - Y) / BOX_SIZE) * BOX_SIZE + Y
+    pixel0_x = int(block_x / PIXEL_SIZE) * PIXEL_SIZE # 二维码像素起始位置
+    pixel0_y = int(block_y / PIXEL_SIZE) * PIXEL_SIZE
+    pixel1_x = pixel0_x # 二维码像素x向最大位置
+    while True:
+        pixel1_x += PIXEL_SIZE
+        if pixel1_x &gt;= block_x + BOX_SIZE:
+            break
+    pixel1_y = pixel0_y # 二维码像素y向最大位置
+    while True:
+        pixel1_y+= PIXEL_SIZE
+        if pixel1_y &gt;= block_y + BOX_SIZE:
+            break
+    result = [
+        ((max(x1, block_x), max(y1, block_y)),
+        (
+            min(x1 + PIXEL_SIZE, block_x + BOX_SIZE),
+            min(y1 + PIXEL_SIZE, block_y + BOX_SIZE))
+        )
+        for x1 in map(
+            lambda x: pixel0_x + PIXEL_SIZE * x,
+            range(0, int((pixel1_x - pixel0_x) / PIXEL_SIZE))
+        )
+        for y1 in map(
+            lambda y: pixel0_y + PIXEL_SIZE * y,
+            range(0, int((pixel1_y - pixel0_y) / PIXEL_SIZE))
+        )
+    ]
+    return result
+
+def gen_possibility(length):
+    '''
+    返回所有可能性
+    '''
+    return [[int(i) for i in list('{:b}'.format(n).rjust(length, '0'))] for n in range(0, 2 ** length)]
+
+def avgs(parts):
+    '''
+    计算在所有可能性下的均值
+    '''
+    n = len(parts)
+    poss = gen_possibility(n)
+    result = []
+    for s in poss:
+        all_sum = sum(
+            [(x2 - x1) * (y2 - y1) * (0 if s[i] else 255)
+                for i,((x1,y1),(x2,y2)) in enumerate(parts)]
+        )
+        avg = all_sum / (BOX_SIZE ** 2)
+        result.append((s, avg))
+    return result
+
+def possibilities(parts, known, target):
+    '''
+    获取所有符合条件的可能性
+    '''
+    print(known)
+    all_poss = [poss for poss, avg in avgs(parts) if int(avg) == target]
+    result = []
+    for poss in all_poss:
+        available = True
+        for n, i in enumerate(known):
+            if i == -1:
+                continue
+            if i != poss[n]:
+                available = False
+                break
+        if available:
+            result.append(poss)
+    return result
+
+def main():
+    '''
+    主程序
+    '''
+    q = queue.Queue()
+    for item in [(nx, ny) for nx in range(0, N) for ny in range(0, N)]:
+        q.put(item)
+    while True:
+        if q.qsize() == 0:
+            break
+        nx, ny = q.get()
+        print(f'current: {nx}, {ny}, {q.qsize()}')
+        if q.qsize() == 154:
+            Image.fromarray(arr).save('./result.png')
+            exit(0)
+        block_x = X + BOX_SIZE * nx
+        block_y = Y + BOX_SIZE * ny
+        parts = divide_by_pixels(block_x, block_y)
+        colors = [get_color(x1, y1) for (x1, y1), _ in parts]
+        poss = possibilities(parts, colors, arr[block_x, block_y])
+        if len(poss) != 1:
+            q.put((nx, ny))
+            continue
+        poss = poss[0]
+        for n, i in enumerate(poss):
+            (x1, y1), (x2, y2) = parts[n]
+            if i == 1:
+                arr[x1:x2, y1:y2] = 0
+            elif i == 0:
+                arr[x1:x2, y1:y2] = 255
+            else:
+                raise Exception
+                Image.fromarray(arr).show()
+                exit(0)
+    Image.fromarray(arr).show()
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<p><img src="/images/4235438444.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><del>这次Hackergame题目印刷清晰，手感舒适；厨房阿姨态度和蔼，瓜非常好吃；flag比pdd好拼，一点也不难；总体来说感觉很不错，明年再来。</del></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #757575;
+            text-shadow: 0;
+            display: none
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://blog.sorasky.in/hg2021.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://blog.sorasky.in/hg2021.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//insorasky-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.disqus_click_btn').css('display','none');
+        })(),
+        error: function() {
+          $('.disqus_click_btn').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//insorasky-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.disqus_click_btn').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/ubuntu2004-webcam.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/nix-open-vm-tools.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/images/avatar.png" alt="Sora's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        inSoraSky BLOG
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:i@sorasky.in" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/11/">十一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E7%BA%AF%E5%B1%9E%E6%8A%98%E8%85%BE/">纯属折腾<span class="sidebar_archives-count">46</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/friends" title="友人帳">
+                
+                    <i class="material-icons sidebar-material-icons">group</i>
+                
+                友人帳
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a target="_blank" rel="noopener" href="https://dn42.mol.moe" title="MolMoe DN42">
+                
+                    <i class="material-icons sidebar-material-icons">language</i>
+                
+                MolMoe DN42
+            </a>
+        </li>
+        
+    
+        <li>
+            <a target="_blank" rel="noopener" href="https://www.sorasky.in" title="sorasky.in">
+                
+                    <i class="material-icons sidebar-material-icons">business</i>
+                
+                sorasky.in
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">47</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/insorasky" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/TheresaJune" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-telegram">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;inSoraSky BLOG
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/bollnh/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<!-- <script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script> -->
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2020;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/bollnh/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
